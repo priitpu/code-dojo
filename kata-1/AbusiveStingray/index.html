@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mark Fuckerberg</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cards">
+        <!-- I could've used JS to create these but nah, all you get from me is css and html -->
+        <!-- card 1 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-avatar-wrapper">
+              <img
+                alt="Picture"
+                src="https://placehold.co/100x100"
+                class="card-avatar"
+              />
+            </div>
+            <div class="card-header-content">
+              <div class="card-header-name">Mark Fuckerberg</div>
+              <div class="card-header-title">Professional Lizard</div>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="card-content-header">Lorem ipsum dolor sit amet.</p>
+            <p class="card-conrent-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              vel nisl ut justo iaculis egestas vitae at erat. Sed nulla leo,
+              mattis in libero vel, vulputate viverra lectus. Duis dictum lorem
+              eget congue condimentum. Phasellus sodales sed justo vel finibus.
+              Vivamus tempus lorem est, eget pellentesque lorem sodales id.
+            </p>
+          </div>
+        </div>
+
+        <!-- card 2 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-avatar-wrapper">
+              <img
+                alt="Picture"
+                src="https://placehold.co/100x100"
+                class="card-avatar"
+              />
+            </div>
+            <div class="card-header-content">
+              <div class="card-header-name">Bill Fakes</div>
+              <div class="card-header-title">Chemtrails Salesman</div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <p class="card-content-header">Lorem ipsum dolor sit amet.</p>
+            <p class="card-conrent-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              vel nisl ut justo iaculis egestas vitae at erat. Sed nulla leo,
+              mattis in libero vel, vulputate viverra lectus. Duis dictum lorem
+              eget congue condimentum. Phasellus sodales sed justo vel finibus.
+              Vivamus tempus lorem est, eget pellentesque lorem sodales id.
+            </p>
+          </div>
+        </div>
+
+        <!-- card 3, the --large modifier makes avatar larger and gives content a margin -->
+        <div class="card card--large">
+          <div class="card-header">
+            <div class="card-avatar-wrapper">
+              <img
+                alt="Picture"
+                src="https://placehold.co/100x100"
+                class="card-avatar"
+              />
+            </div>
+            <div class="card-header-content">
+              <div class="card-header-name">Jeff Mezos</div>
+              <div class="card-header-title">A-Z Man</div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <p class="card-content-header">Lorem ipsum dolor sit amet.</p>
+            <p class="card-conrent-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              vel nisl ut justo iaculis egestas vitae at erat. Sed nulla leo,
+              mattis in libero vel, vulputate viverra lectus. Duis dictum lorem
+              eget congue condimentum. Phasellus sodales sed justo vel finibus.
+              Vivamus tempus lorem est, eget pellentesque lorem sodales id.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+      }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        background: #222831;
+        color: #fff;
+      }
+      .container {
+        max-width: 67.5rem;
+        margin: 4rem auto;
+        padding: 1rem;
+        width: 100%;
+      }
+      .cards {
+        --cards-per-row: 2;
+        --cards-gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--cards-gap);
+      }
+      .card {
+        --card-avatar-size: 4rem;
+        --card-header-gap: 1rem;
+        --card-single-percent: calc(100% / var(--cards-per-row));
+        --card-single-width: calc(
+          var(--card-single-percent) - var(--cards-gap)
+        );
+        background: #30373f;
+        min-width: 17.5rem;
+        padding: 1rem;
+        flex: 1 0 var(--card-single-width);
+      }
+      .card p {
+        margin-top: 1rem;
+        margin-bottom: 0;
+      }
+      .card-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--card-header-gap);
+      }
+      .card-header-name,
+      .card-content-header {
+        font-size: 1.8rem;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
+      .card-header-title {
+        font-size: 1.2rem;
+      }
+      .card-avatar-wrapper {
+        position: relative;
+        flex-shrink: 0;
+        width: var(--card-avatar-size);
+        height: var(--card-avatar-size);
+        overflow: hidden;
+        border-radius: 100%;
+      }
+      .card-avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @media all and (min-width: 768px) {
+        .card--large {
+          --card-avatar-size: 5rem;
+        }
+        .card--large .card-content {
+          margin-left: calc(var(--card-avatar-size) + var(--card-header-gap));
+        }
+      }
+    </style>
+  </body>
+</html>

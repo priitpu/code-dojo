@@ -1,0 +1,5 @@
+<div class="cards">
+  <ng-container *ngFor="let card of cards; index as i">
+    <app-card [cardPersonImgSize]="i !== cards.length - 1 ? 'small' : 'medium'"></app-card>
+  </ng-container>
+</div>

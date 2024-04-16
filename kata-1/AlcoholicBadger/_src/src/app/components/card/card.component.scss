@@ -1,0 +1,29 @@
+.card {
+  padding: 2rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: dimgrey;
+  img {
+    height: 5rem;
+    border-radius: 50%;
+    &.small {
+      height: 3rem;
+    }
+    &.medium {
+      height: 5rem;
+    }
+    &.big {
+      height: 7rem;
+    }
+  }
+  .card-person {
+    font-weight: bolder;
+    &__name {
+      margin-bottom: 0.25rem;
+      font-size: 1.25rem;
+    }
+    &__company {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: black;
+  app-card {
+    flex: auto;
+    width: 40%;
+  }
+}
