@@ -1,37 +1,51 @@
 <div class="comment" [style.grid-template-columns]="grid">
-
-  <div class="line-left" [style.grid-column-start]="step" [class.line-span]="step > 1">
-    <img *ngIf="isFirst" src="../../../assets/img/line-left.svg" aria-hidden="true">    
+  <div
+    class="line-left"
+    [style.grid-column-start]="step"
+    [class.line-span]="step > 1"
+  >
+    <img *ngIf="isFirst" src="./assets/img/line-left.svg" aria-hidden="true" />
   </div>
 
-  <div class="comment-content" [style.grid-column-start]="step + 1" [style.margin-top.rem]="isFirst ? 1 : 0">
+  <div
+    class="comment-content"
+    [style.grid-column-start]="step + 1"
+    [style.margin-top.rem]="isFirst ? 1 : 0"
+  >
     <div class="avatar">
-      <img src="../../../assets/img/avatar.svg" alt="Profile picture">
+      <img src="./assets/img/avatar.svg" alt="Profile picture" />
     </div>
-  
+
     <div class="comment-header">
       <span class="username">
         {{ comment.user }}
       </span>
-      <span class="timestamp">
-        10hr ago
-      </span>
+      <span class="timestamp"> 10hr ago </span>
     </div>
-  
+
     <div *ngIf="!isLast" class="line" aria-hidden="true"></div>
-  
+
     <div class="comment-body">
       <p [innerText]="comment.content"></p>
-  
+
       <div class="comment-footer">
         <span>Reply</span>
         <span>Share</span>
-      </div>  
+      </div>
     </div>
   </div>
-  
 </div>
 
 <ng-container *ngIf="comment.replies">
-  <app-comment *ngFor="let reply of comment.replies; first as isFirstReply; last as isLastReply" [comment]="reply" [step]="step + 1" [isFirst]="isFirstReply" [isLast]="isLastReply"></app-comment>
+  <app-comment
+    *ngFor="
+      let reply of comment.replies;
+      first as isFirstReply;
+      last as isLastReply
+    "
+    [comment]="reply"
+    [step]="step + 1"
+    [isFirst]="isFirstReply"
+    [isLast]="isLastReply"
+  ></app-comment>
 </ng-container>
