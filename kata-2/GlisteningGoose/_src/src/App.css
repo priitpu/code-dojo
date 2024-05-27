@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  line-height: 1;
+  background-color: #2f2f2f;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.content-container {
+  margin: 0 4rem;
+  background-color: #2f2f2f;
+  padding: 2rem;
+  color: white;
+}
+
+.comment-wrapper {
+  position: relative;
+  padding: 0 3rem 3rem 3rem;
+  margin-bottom: 0.5rem;
+  left: -2px;
+  border-left: 2px solid #969696;
+}
+
+.border + .border,
+.border:not(:last-child) {
+  position: relative;
+  border-left: 2px solid #969696;
+}
+
+.children-container {
+  position: relative;
+  margin-left: 4rem;
+}
+
+.children-container::before {
+  content: "";
+  top: -10px;
+  position: absolute;
+  left: -66px;
+  border-bottom-left-radius: 40px;
+  background-color: #2f2f2f;
+  border-bottom: solid 2px #969696;
+  border-left: solid 2px #969696;
+  width: 65px;
+  height: 25px;
+}
+
+.last-child:not(:last-child) {
+  border-left: 2px solid #969696;
+}
+
+.last-child .comment-wrapper {
+  border: none;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+.title__info {
+  margin-left: 1rem;
+  color: #acacac;
+}
+
+.title {
+  margin: 0.2rem 0 0 0;
+}
+
+.buttons {
+  display: flex;
+  color: #f2f2f2;
+}
+
+.buttons *:last-child {
+  margin-left: 1rem;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: -5px;
+  position: absolute;
+  left: -20px;
+}
+
+.body {
+  color: #cdcdcd;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    padding: 2rem;
+  }
+  .comment-wrapper {
+    padding: 0.5rem;
+  }
+
+  .children-container {
+    margin-left: 1rem;
+  }
+
+  .children-container::before {
+    content: none;
+  }
+
+  .title {
+    margin: 0.2rem 0 0 2rem;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: -5px;
+    position: absolute;
+    left: -8px;
+    top: -10px;
+  }
+
+  .body {
+    margin-left: 0.5rem;
+  }
+}

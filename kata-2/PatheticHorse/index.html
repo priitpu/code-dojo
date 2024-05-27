@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Coding Kata II - ATTACK OF THE LINES</title>
+	<link rel="icon" type="image/png" href="useravatar.png">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+	:root {
+	  --black: #121212;
+	  --grey: #2F2F2F;
+	  --grey-second: #969696;
+	  --white: #FFFFFF;
+	  --font-size: 16px;
+	  --roboto: "Roboto", sans-serif;
+	  --font-weight: 400;
+	  --font-style: normal;
+	  
+	}
+
+	body { 
+		background-color: var(--black); 
+		color: var(--white);
+		font-size: var(--font-size);
+		font-family: var(--roboto);
+	    font-weight: var(--font-weight);
+	    font-style: var(--font-style);
+	}
+
+	section { 
+		background-color: var(--grey);
+	}
+
+	.container {
+		display: grid;
+		width: 780px;
+		margin: 30px auto;
+		row-gap: 15px;
+	}
+
+	.multi-thread {
+		position: relative;
+	}
+
+	.thread {
+		padding: 16px;
+	}
+
+	.sub-thread {
+		position: relative;
+		margin-left: 42px;
+	}
+
+	.sub-sub-thread {
+		position: relative;
+		margin-left: 58px;
+	}
+
+	.avatar {
+		position: relative;
+		background-image: url('useravatar.png');
+		background-size: 26px 26px;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+	}
+
+	.multi-thread .sub-thread .comment::before,
+	.multi-thread .sub-sub-thread .comment::before {
+	    position: absolute;
+	    content: '';
+	    width: 43px;
+	    height: 27px;
+	    border-left: 2px solid var(--grey-second);
+	    border-bottom: 2px solid var(--grey-second);
+	    border-radius: 0 0 0 15px;
+	    top: 0;
+	    left: -29px;
+	}
+
+	
+	.multi-thread .sub-more .comment::before{
+		content: unset;
+	}
+
+	.multi-thread .sub-sub-more .comment::before {
+		content: '';
+	}
+
+	.multi-thread .thread .comment::after,
+	.multi-thread .thread .comment::after,
+	.multi-thread .thread .comment::after {
+		position: absolute;
+		content: '';
+		border-left: 2px solid var(--grey-second);
+		height: 100%;
+		top: 42px;
+		left: 29px;
+	}
+
+	.multi-thread .thread .comment::after {
+		max-height: 240px;
+	}
+
+	.multi-thread .sub-last .comment::after {
+		max-height: 250px;
+	}
+
+
+	.multi-thread .sub-sub-last .comment::after {
+		content: unset;
+	}
+
+	.multi-thread .next .comment::after {
+		max-height: 100%;
+	}
+
+
+	.comment {
+		display: grid;
+    	grid-auto-flow: column;
+	}
+
+	.content {
+		padding: 8px 0 8px 16px;
+	}
+
+	.title {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 14px;
+		padding-bottom: 8px;
+	}
+
+	.title span {
+		font-size: 10px;
+		font-weight: 100;
+		line-height: 10px;
+		margin-left: 10px;
+	}
+
+	p {
+		font-weight: 100;
+		line-height: 18.5px;
+	}
+
+	p:first-child{
+		margin-top: 8px;
+	}
+
+	p:last-child{
+		margin-bottom: 8px;
+	}
+
+	.buttons {
+		padding: 9.5px 0;
+	}
+
+	button {
+		color: var(--white);
+	    font-family: var(--roboto);
+	    text-transform: uppercase;
+	    background-color: var(--grey);
+	    border: unset;
+	    font-size: 13px;
+	    line-height: 15px;
+	    padding: 0;
+	    font-weight: 100;
+	}
+
+</style>
+
+<body>
+	<section class="container">
+		<div class="thread">
+			<div class="comment">
+				<div class="avatar"></div>
+				<div class="content">
+					<div class="title">
+						Elongated Muskrat
+						<span>10hr ago</span>
+					</div>
+					<div class="body">
+						<p>Elongated Muskrat
+						10hr ago
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<div>
+						<button>Reply</button>
+						<button>Share</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="multi-thread">
+			<div class="thread">
+				<div class="comment">
+					<div class="avatar"></div>
+					<div class="content">
+						<div class="title">
+							Elongated Muskrat
+							<span>10hr ago</span>
+						</div>
+						<div class="body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+						<div class="buttons">
+							<button>Reply</button>
+							<button>Share</button>
+						</div>
+					</div>
+				</div>
+				<div class="sub-thread next">
+					<div class="thread">
+						<div class="comment">
+							<div class="avatar"></div>
+							<div class="content">
+								<div class="title">
+									Elongated Muskrat
+									<span>10hr ago</span>
+								</div>
+								<div class="body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+									<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</div>
+								<div class="buttons">
+									<button>Reply</button>
+									<button>Share</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sub-sub-thread sub-sub-last">
+						<div class="thread">
+							<div class="comment">
+								<div class="avatar"></div>
+								<div class="content">
+									<div class="title">
+										Elongated Muskrat
+										<span>10hr ago</span>
+									</div>
+									<div class="body">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+										<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+									<div class="buttons">
+										<button>Reply</button>
+										<button>Share</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sub-thread next sub-more">
+					<div class="thread">
+						<div class="comment">
+							<div class="avatar"></div>
+							<div class="content">
+								<div class="title">
+									Elongated Muskrat
+									<span>10hr ago</span>
+								</div>
+								<div class="body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+									<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</div>
+								<div class="buttons">
+									<button>Reply</button>
+									<button>Share</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sub-thread sub-last sub-more">
+					<div class="thread">
+						<div class="comment">
+							<div class="avatar"></div>
+							<div class="content">
+								<div class="title">
+									Elongated Muskrat
+									<span>10hr ago</span>
+								</div>
+								<div class="body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+									<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</div>
+								<div class="buttons">
+									<button>Reply</button>
+									<button>Share</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sub-sub-thread next sub-sub-more">
+						<div class="thread">
+							<div class="comment">
+								<div class="avatar"></div>
+								<div class="content">
+									<div class="title">
+										Elongated Muskrat
+										<span>10hr ago</span>
+									</div>
+									<div class="body">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+										<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+									<div class="buttons">
+										<button>Reply</button>
+										<button>Share</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sub-sub-thread sub-sub-last">
+						<div class="thread">
+							<div class="comment">
+								<div class="avatar"></div>
+								<div class="content">
+									<div class="title">
+										Elongated Muskrat
+										<span>10hr ago</span>
+									</div>
+									<div class="body">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolroe magna aliqua.</p>
+
+										<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequeat.</p>
+
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+									<div class="buttons">
+										<button>Reply</button>
+										<button>Share</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<script>
+	
+	</script>
+</body>
+
+
+</html>

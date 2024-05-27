@@ -1,0 +1,175 @@
+@layer base;
+
+:root {
+  --main-bg-color: #2f2f2f;
+  --comment-time-color: #ffffff99;
+  --comment-contents-color: #ffffffc2;
+  --comment-path-color: #969696;
+}
+
+* {
+  @layer base {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.example {
+  max-width: 772px;
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: [path] 26px [contents] 1fr;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--main-bg-color);
+  grid-column: contents;
+}
+
+.comment:has(.comment--first-child) {
+  --path-height: calc(100% + 16px);
+
+  & .comment--nested:not(.comment--last-child)::after {
+    content: "";
+    background-color: var(--comment-path-color);
+    width: 2px;
+    height: var(--path-height, 100%);
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: 16px;
+    height: calc(100% + 16px);
+    z-index: 1;
+  }
+}
+
+/* Tee programmaatiliselt need modifierid idk */
+.comment--nested {
+  position: relative;
+}
+
+.comment--first-child {
+  --path-height: 100%;
+}
+
+.comment--last-child:not(:has(.comment--nested)) {
+  --path-height: 0;
+}
+
+.comment--first-child::before {
+  content: "";
+  background-image: url(assets/corner.svg);
+  background-repeat: no-repeat;
+  width: 49px;
+  height: 32px;
+  position: absolute;
+  left: calc(-30px * var(--nesting-depth, 1));
+}
+
+.comment--last-child::before {
+  content: "";
+  width: 2px;
+  background-color: var(--comment-path-color);
+  height: 64px;
+  top: -48px;
+  left: 28px;
+  position: absolute;
+}
+
+.comment__path {
+  grid-column: path;
+  grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.comment__path::after {
+  content: "";
+  background-color: var(--comment-path-color);
+  width: 2px;
+  height: var(--path-height, 100%);
+  display: block;
+  position: absolute;
+}
+
+.comment__avatar {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 100px;
+  z-index: 2;
+}
+.comment__header,
+.comment__contents,
+.comment__actions {
+  grid-column: contents;
+}
+
+.comment__header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  & span:first-child {
+    color: white;
+  }
+
+  & span:nth-child(2) {
+    color: var(--comment-time-color);
+  }
+}
+
+.comment__contents {
+  color: var(--comment-contents-color);
+}
+
+.comment__actions {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  background-color: transparent;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  border: 0;
+  color: var(--comment-contents-color);
+  cursor: pointer;
+  height: 12px;
+}
+
+.button:hover {
+  color: #737dff;
+}
+
+.button:focus {
+  outline: 1px solid white;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  display: inline-flex;
+  place-content: center;
+}
+
+.icon::before {
+  content: "";
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 100%;
+  height: 100%;
+  mask-image: var(--icon-url);
+}

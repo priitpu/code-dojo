@@ -1,0 +1,33 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: #f70d1a;
+}
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid black;
+  border-radius: 4px;
+  font: inherit;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 12px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: black;
+    color: #ff2800;
+  }
+}
+
+.text {
+  &--sm {
+    font-size: 12px;
+  }
+  &--muted {
+    color: #333;
+  }
+}
