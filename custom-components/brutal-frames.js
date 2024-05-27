@@ -71,7 +71,7 @@ class Frame extends HTMLElement {
       const frame = template.content.cloneNode(true);
       const iframe = document.createElement('iframe');
       iframe.loading = 'lazy';
-      iframe.src = `/code-dojo/kata-1/${folder}/index.html`;
+      iframe.src = `${window.location.href}/${folder}/index.html`;
       iframe.title = folder;
       iframes = [...iframes, iframe];
       iframe.onload = () => {
@@ -81,7 +81,7 @@ class Frame extends HTMLElement {
       frame.querySelector('.frame__author').textContent = folder;
       frame.querySelector(
         '.frame__source'
-      ).href = `https://github.com/priitpu/code-dojo/tree/main/kata-1/${folder}`;
+      ).href = `https://github.com/priitpu/code-dojo/tree/main/${window.location.href.split('/').at(-1)}/${folder}`;
       frame.querySelector('.frame').prepend(iframe);
       frame.querySelector('.frame').style.backgroundColor = getRandomColor();
       frames = [...frames, frame];
