@@ -1,3 +1,5 @@
+import { createStyles } from "../scripts/component-utils";
+
 class BrutalSlider extends HTMLElement {
     constructor() {
         super();
@@ -28,9 +30,10 @@ class BrutalSlider extends HTMLElement {
             iframe.height = '100%';
             card.classList.add('card');
             card.appendChild(iframe);
+            card.appendChild(createStyles(styles));
             shadow.appendChild(card);
         });
-        shadow.appendChild(createStyles(styles));
+        // shadow.appendChild(createStyles(styles));
     }
 }
 
