@@ -1,4 +1,4 @@
-import { createStyles } from "../scripts/component-utils";
+import { createStyles } from "../scripts/component-utils.js";
 
 class BrutalSlider extends HTMLElement {
     constructor() {
