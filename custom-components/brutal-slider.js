@@ -14,7 +14,7 @@ class BrutalSlider extends HTMLElement {
         const cardStyles = `
         .card {
           box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
-          width: 100vw;
+          width: 100%;
           height: 100%;
           display: flex;
           background-color: #fdfd96;
