@@ -4,6 +4,7 @@ import { getRandomColor } from "../scripts/get-random-color.js";
 class BrutalSlider extends HTMLElement {
     constructor() {
         super();
+        current = 0;
     }
     fetchFolders = async () => {
         const res = await fetch(this.getAttribute('src'));
@@ -23,15 +24,16 @@ class BrutalSlider extends HTMLElement {
           border-radius: 5px;
           margin: 0 auto;
           position: relative;
+          flex-shrink: 0;
         }`;
         const sliderStyles = `
         .slider {
-            overflow: hidden;
+            display: flex;
             width: 100%;
             height: 90svh;
         }
         .slider-scroll {
-
+            overflow: hidden;
         }
         `;
         const [leftButton, rightButton] = [document.createElement('button'), document.createElement('button')];
@@ -46,23 +48,21 @@ class BrutalSlider extends HTMLElement {
         rightButton.className = 'button';
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
-        [leftButton, rightButton].forEach((button) => {
-            button.addEventListener('click', () => {
-                const slider = shadow.querySelector('.slider');
-                const cards = shadow.querySelectorAll('.card');
-                const cardWidth = cards[0].clientWidth;
-                if (button.textContent === '>') {
-                    slider.scrollLeft += cardWidth;
-                } else {
-                    slider.scrollLeft -= cardWidth;
-                }
-            });
-        })
+        leftButton.addEventListener('click', () => {
+            this.current = this.current > 0 ? this.current - 1 : 0;
+            slider.style.transform = `translateX(-${this.current * 100}%)`;
+
+        });
+        rightButton.addEventListener('click', () => {
+            this.current = this.current > shadow.querySelectorAll('.card').length ? this.current + 1 : shadow.querySelectorAll('.card').length;
+            slider.style.transform = `translateX(-${this.current * 100}%)`;
+        });
         const container = document.createElement('div');
         container.className = 'container';
         const slider = document.createElement('div');
         slider.className = 'slider';
         const sliderScroll = document.createElement('div');
+        sliderScroll.className = 'slider-scroll';
         folders.forEach((folder) => {
             const card = document.createElement('div');
             const iframe = document.createElement('iframe');
