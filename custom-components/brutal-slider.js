@@ -1,5 +1,5 @@
 import { createStyles } from "../scripts/component-utils.js";
-import { getRandomColor } from "../scripts/utils.js";
+import { getRandomColor } from "../scripts/get-random-color.js";
 
 class BrutalSlider extends HTMLElement {
     constructor() {
