@@ -58,7 +58,7 @@ class BrutalSlider extends HTMLElement {
 
         });
         rightButton.addEventListener('click', () => {
-            this.current = this.current < shadow.querySelectorAll('.card').length ? this.current + 1 : shadow.querySelectorAll('.card').length;
+            this.current = this.current < shadow.querySelectorAll('.card').length - 1 ? this.current + 1 : shadow.querySelectorAll('.card').length;
             slider.style.transform = `translateX(${this.current * 100}%)`;
         });
         const container = document.createElement('div');
