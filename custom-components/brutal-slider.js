@@ -30,6 +30,9 @@ class BrutalSlider extends HTMLElement {
             width: 100%;
             height: 90svh;
         }
+        .slider-scroll {
+
+        }
         `;
         const [leftButton, rightButton] = [document.createElement('button'), document.createElement('button')];
         const buttonStyles = `
@@ -58,7 +61,8 @@ class BrutalSlider extends HTMLElement {
         const container = document.createElement('div');
         container.className = 'container';
         const slider = document.createElement('div');
-        slider.className = 'slider'
+        slider.className = 'slider';
+        const sliderScroll = document.createElement('div');
         folders.forEach((folder) => {
             const card = document.createElement('div');
             const iframe = document.createElement('iframe');
@@ -73,7 +77,8 @@ class BrutalSlider extends HTMLElement {
         shadow.appendChild(createStyles(cardStyles));
         shadow.appendChild(container);
         container.appendChild(leftButton);
-        container.appendChild(slider);
+        container.appendChild(sliderScroll);
+        sliderScroll.appendChild(slider);
         container.appendChild(rightButton);
     }
 }
