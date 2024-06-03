@@ -26,7 +26,6 @@ class BrutalSlider extends HTMLElement {
         }`;
         const sliderStyles = `
         .slider {
-            display: flex;
             overflow: hidden;
             width: 100%;
             height: 90svh;
@@ -44,6 +43,18 @@ class BrutalSlider extends HTMLElement {
         rightButton.className = 'button';
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
+        [leftButton, rightButton].forEach((button) => {
+            button.addEventListener('click', () => {
+                const slider = shadow.querySelector('.slider');
+                const cards = shadow.querySelectorAll('.card');
+                const cardWidth = cards[0].clientWidth;
+                if (button.textContent === '>') {
+                    slider.scrollLeft += cardWidth;
+                } else {
+                    slider.scrollLeft -= cardWidth;
+                }
+            });
+        })
         const container = document.createElement('div');
         container.className = 'container';
         const slider = document.createElement('div');
