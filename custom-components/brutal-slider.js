@@ -15,13 +15,12 @@ class BrutalSlider extends HTMLElement {
         const folders = await this.fetchFolders();
         const cardStyles = `
         .card {
-          box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+
           width: 100%;
           height: 100%;
           display: flex;
           background-color: #fdfd96;
-          border: 3px solid #000;
-          border-radius: 5px;
+
           margin: 0 auto;
           position: relative;
           flex-shrink: 0;
@@ -31,6 +30,9 @@ class BrutalSlider extends HTMLElement {
             display: flex;
             width: 100%;
             height: 90svh;
+            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+            border: 3px solid #000;
+            border-radius: 5px;
         }
         .slider-scroll {
             overflow: hidden;
@@ -39,7 +41,9 @@ class BrutalSlider extends HTMLElement {
         const [leftButton, rightButton] = [document.createElement('button'), document.createElement('button')];
         const buttonStyles = `
             .button {
-
+                box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+                border: 3px solid #000;
+                border-radius: 5px;
             }
         `;
         leftButton.textContent = '<';
