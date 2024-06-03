@@ -26,15 +26,25 @@ class BrutalSlider extends HTMLElement {
         const sliderStyles = `
         .slider {
             display: flex;
-            overflow-x: auto;
-            width: 100%;
-            height: 100vh;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
+            overflow: hidden;
             width: 100%;
             height: 90svh;
         }
         `;
+        const [leftButton, rightButton] = [document.createElement('button'), document.createElement('button')];
+        const buttonStyles = `
+            .button {
+
+            }
+        `;
+        leftButton.textContent = '<';
+        rightButton.textContent = '>';
+        leftButton.className = 'button';
+        rightButton.className = 'button';
+        leftButton.style.backgroundColor = getRandomColor();
+        rightButton.style.backgroundColor = getRandomColor();
+        const container = document.createElement('div');
+        container.className = 'container';
         const slider = document.createElement('div');
         slider.className = 'slider'
         folders.forEach((folder) => {
@@ -49,7 +59,10 @@ class BrutalSlider extends HTMLElement {
             slider.appendChild(card);
         });
         shadow.appendChild(createStyles(sliderStyles));
-        shadow.appendChild(slider);
+        container.appendChild(leftButton);
+        container.appendChild(slider);
+        container.appendChild(rightButton);
+        shadow.appendChild(container);
     }
 }
 
