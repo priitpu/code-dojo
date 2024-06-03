@@ -59,10 +59,10 @@ class BrutalSlider extends HTMLElement {
             slider.appendChild(card);
         });
         shadow.appendChild(createStyles(sliderStyles));
+        shadow.appendChild(container);
         container.appendChild(leftButton);
         container.appendChild(slider);
         container.appendChild(rightButton);
-        shadow.appendChild(container);
     }
 }
 
