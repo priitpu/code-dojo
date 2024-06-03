@@ -2,9 +2,9 @@ import { createStyles } from "../scripts/component-utils.js";
 import { getRandomColor } from "../scripts/get-random-color.js";
 
 class BrutalSlider extends HTMLElement {
+    current = 0;
     constructor() {
         super();
-        current = 0;
     }
     fetchFolders = async () => {
         const res = await fetch(this.getAttribute('src'));
