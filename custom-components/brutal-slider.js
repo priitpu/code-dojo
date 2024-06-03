@@ -56,10 +56,10 @@ class BrutalSlider extends HTMLElement {
             iframe.height = '100%';
             card.classList.add('card');
             card.appendChild(iframe);
-            card.appendChild(createStyles(cardStyles));
             slider.appendChild(card);
         });
         shadow.appendChild(createStyles(sliderStyles));
+        shadow.appendChild(createStyles(cardStyles));
         shadow.appendChild(container);
         container.appendChild(leftButton);
         container.appendChild(slider);
