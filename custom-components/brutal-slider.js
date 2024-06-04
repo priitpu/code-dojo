@@ -59,6 +59,10 @@ class BrutalSlider extends HTMLElement {
             top: -10px;
             position: absolute;
             z-index: 1;
+            cursor:pointer;
+        }
+        .button:hover {
+            transform: scale(1.01) translate(-2%, -2%);
         }
         .button--right {
             right: -10px;
