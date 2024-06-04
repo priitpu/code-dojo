@@ -73,9 +73,11 @@ class BrutalSlider extends HTMLElement {
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .button:hover {
             transform: scale(1.01) translate(-2%, -2%);
+            box-shadow: 9px 9px 0px 6px rgb(0, 0, 0);
         }
         .button--right {
             right: -70px;
