@@ -20,7 +20,15 @@ class BrutalSlider extends HTMLElement {
           margin: 0 auto;
           position: relative;
           flex-shrink: 0;
-        }`;
+        }
+        .tag {
+            position: absolute;
+            top:0;
+            right:0;
+            font-weight: bold;
+            font-size:20px;
+        }
+        `;
     };
     createSliderStyles = () => {
         return `
@@ -89,6 +97,10 @@ class BrutalSlider extends HTMLElement {
         iframe.height = '100%';
         card.classList.add('card');
         card.appendChild(iframe);
+        const tag = document.createElement('div');
+        card.appendChild(tag);
+        tag.textContent = folder;
+        tag.style.backgroundColor = getRandomColor();
         return card;
     };
     createSlider = () => {
