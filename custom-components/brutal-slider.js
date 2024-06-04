@@ -161,7 +161,7 @@ class BrutalSlider extends HTMLElement {
             this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = shadow.querySelectorAll('.card').length - 1;
             let size = 0;
             for (let i = 0; i < this.current; i++) {
-                size += slider.children[i].clientWidth + 1;
+                size += slider.children[i].clientWidth - 1;
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
@@ -169,7 +169,7 @@ class BrutalSlider extends HTMLElement {
             this.current - 1 > 0 ? this.current-- : this.current = 0;
             let size = 0;
             for (let i = 0; i < this.current; i++) {
-                size += slider.children[i].clientWidth + 1;
+                size += slider.children[i].clientWidth - 1;
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
@@ -180,7 +180,7 @@ class BrutalSlider extends HTMLElement {
         window.addEventListener('resize', () => {
             let size = 0;
             for (let i = 0; i < this.current; i++) {
-                size += slider.children[i].clientWidth + 1;
+                size += slider.children[i].clientWidth - 1;
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
