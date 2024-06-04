@@ -36,6 +36,9 @@ class BrutalSlider extends HTMLElement {
         .slider-scroll {
             overflow: hidden;
         }
+        iframe {
+            border: 0;
+        }
         `;
     };
     createButtonStyles = () => {
