@@ -182,7 +182,10 @@ class BrutalSlider extends HTMLElement {
             for (let i = 0; i < this.current; i++) {
                 size += slider.children[i].clientWidth;
             }
+            const tempTransition = `${slider.style.transition}`;
+            slider.style.transition = 'none';
             slider.style.transform = `translateX(${-size}px)`;
+            slider.style.transition = tempTransition;
         });
         shadow.appendChild(createStyles(this.createCardStyles()));
         shadow.appendChild(createStyles(this.createSliderStyles()));
