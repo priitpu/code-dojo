@@ -84,3 +84,7 @@
   border-color: #fff;
   z-index: 0;
 }
+.info {
+  display: flex;
+  gap: 16px;
+}
