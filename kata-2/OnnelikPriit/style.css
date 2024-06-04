@@ -23,7 +23,7 @@
   position: relative;
   display: grid;
   grid-template-columns: var(--magic-number) 1fr;
-  grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
+  grid-template-rows: minmax(var(--magic-number), min-content) 1fr 1fr;
   grid-template-areas: "avatar info" "avatar ." "avatar children";
   padding: calc(var(--magic-number) / 5);
 }
