@@ -43,6 +43,7 @@ class BrutalSlider extends HTMLElement {
         .container {
             position: relative;
             width: 80%;
+            margin: 0 auto;
         }
         `;
     };
