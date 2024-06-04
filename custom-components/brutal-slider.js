@@ -53,10 +53,13 @@ class BrutalSlider extends HTMLElement {
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
         leftButton.addEventListener('click', () => {
-            this.current = this.current > 0 ? this.current - 1 : 0;
             let size = 0;
             for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
-                size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+                if (i > 0) {
+                    size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+                } else {
+                    size += shadow.querySelectorAll('.card')[0].getBoundingClientRect().width;
+                }
             }
             slider.style.transform = `translateX(${-size}px)`;
 
@@ -64,7 +67,11 @@ class BrutalSlider extends HTMLElement {
         rightButton.addEventListener('click', () => {
             let size = 0;
             for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
-                size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+                if (i > 0) {
+                    size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+                } else {
+                    size += shadow.querySelectorAll('.card')[0].getBoundingClientRect().width;
+                }
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
