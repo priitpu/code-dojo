@@ -24,7 +24,7 @@
   display: grid;
   grid-template-columns: var(--magic-number) 1fr;
   grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
-  grid-template-areas: "avatar ." "avatar children";
+  grid-template-areas: "avatar info" "avatar ." "avatar children";
   padding: calc(var(--magic-number) / 5);
 }
 .content {
@@ -87,4 +87,5 @@
 .info {
   display: flex;
   gap: 16px;
+  grid-area: info;
 }
