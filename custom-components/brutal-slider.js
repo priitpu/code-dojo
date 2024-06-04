@@ -48,6 +48,18 @@ class BrutalSlider extends HTMLElement {
             box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
             border: 3px solid #000;
             border-radius: 5px;
+            width: 100px;
+            height: 100px;
+            font-size: 70px;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            position: absolute;
+            z-index: 1;
+        }
+        .button--right {
+            right: -10px;
+            bottom: -10px;
         }
     `;
     };
