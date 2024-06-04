@@ -28,13 +28,14 @@ class BrutalSlider extends HTMLElement {
             display: flex;
             width: 100%;
             height: 90svh;
-            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
-            border: 3px solid #000;
-            border-radius: 5px;
+            
             transition: transform 0.3s ease-in-out;
         }
         .slider-scroll {
             overflow: hidden;
+            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+            border: 3px solid #000;
+            border-radius: 5px;
         }
         iframe {
             border: 0;
