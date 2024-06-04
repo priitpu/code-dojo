@@ -52,7 +52,7 @@ class BrutalSlider extends HTMLElement {
         container.className = 'container';
         return container;
     };
-    createCard = () => {
+    createCard = (folder) => {
         const card = document.createElement('div');
         const iframe = document.createElement('iframe');
         iframe.src = folder;
