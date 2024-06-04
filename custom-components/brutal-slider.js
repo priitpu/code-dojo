@@ -15,12 +15,10 @@ class BrutalSlider extends HTMLElement {
         const folders = await this.fetchFolders();
         const cardStyles = `
         .card {
-
           width: 100%;
           height: 100%;
           display: flex;
           background-color: #fdfd96;
-
           margin: 0 auto;
           position: relative;
           flex-shrink: 0;
@@ -52,26 +50,11 @@ class BrutalSlider extends HTMLElement {
         rightButton.className = 'button';
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
-        leftButton.addEventListener('click', () => {
-            let size = 0;
-            for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
-                if (i > 0) {
-                    size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
-                } else {
-                    size += shadow.querySelectorAll('.card')[0].getBoundingClientRect().width;
-                }
-            }
-            slider.style.transform = `translateX(${-size}px)`;
-
-        });
         rightButton.addEventListener('click', () => {
+            current + 1 <= shadow.querySelectorAll('.card').length - 1 ? current++ : current = 0;
             let size = 0;
-            for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
-                if (i > 0) {
-                    size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
-                } else {
-                    size += shadow.querySelectorAll('.card')[0].getBoundingClientRect().width;
-                }
+            for (let i = 0; i < current; i++) {
+                size += slider.children[i].clientWidth;
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
