@@ -9,7 +9,7 @@
     --magic-number: 50px;
   }
   @media (min-width: 768px) {
-    --magic-number: 100px;
+    --magic-number: 75px;
   }
   @media (min-width: 1024px) {
     --magic-number: 100px;
