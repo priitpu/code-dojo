@@ -53,7 +53,7 @@ class BrutalSlider extends HTMLElement {
         rightButton.addEventListener('click', () => {
             this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = 0;
             let size = 0;
-            for (let i = 0; i < current; i++) {
+            for (let i = 0; i < this.current; i++) {
                 size += slider.children[i].clientWidth;
             }
             slider.style.transform = `translateX(${-size}px)`;
