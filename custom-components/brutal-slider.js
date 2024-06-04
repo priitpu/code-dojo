@@ -80,7 +80,7 @@ class BrutalSlider extends HTMLElement {
         }
         .button:hover {
             transform: scale(1.01) translate(-2%, -2%);
-            box-shadow: 9px 9px 0px 6px rgb(0, 0, 0);
+            box-shadow: 8px 8px 0px 5px rgb(0, 0, 0);
         }
         .button--right {
             right: -70px;
