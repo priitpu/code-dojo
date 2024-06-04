@@ -58,6 +58,14 @@ class BrutalSlider extends HTMLElement {
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
+        leftButton.addEventListener('click', () => {
+            this.current - 1 > 0 ? this.current-- : this.current = 0;
+            let size = 0;
+            for (let i = 0; i < this.current; i++) {
+                size += slider.children[i].clientWidth;
+            }
+            slider.style.transform = `translateX(${-size}px)`;
+        });
         const container = document.createElement('div');
         container.className = 'container';
         const slider = document.createElement('div');
