@@ -54,12 +54,19 @@ class BrutalSlider extends HTMLElement {
         rightButton.style.backgroundColor = getRandomColor();
         leftButton.addEventListener('click', () => {
             this.current = this.current > 0 ? this.current - 1 : 0;
-            slider.style.transform = `translateX(${this.current * 100}%)`;
+            let size = 0;
+            for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
+                size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+            }
+            slider.style.transform = `translateX(${size * 100}%)`;
 
         });
         rightButton.addEventListener('click', () => {
-            this.current = this.current < shadow.querySelectorAll('.card').length - 1 ? this.current + 1 : shadow.querySelectorAll('.card').length;
-            slider.style.transform = `translateX(-${this.current * 100}%)`;
+            let size = 0;
+            for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
+                size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
+            }
+            slider.style.transform = `translateX(${size * 100}%)`;
         });
         const container = document.createElement('div');
         container.className = 'container';
