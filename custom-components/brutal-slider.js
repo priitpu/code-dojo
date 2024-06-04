@@ -51,7 +51,7 @@ class BrutalSlider extends HTMLElement {
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
         rightButton.addEventListener('click', () => {
-            current + 1 <= shadow.querySelectorAll('.card').length - 1 ? current++ : current = 0;
+            this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = 0;
             let size = 0;
             for (let i = 0; i < current; i++) {
                 size += slider.children[i].clientWidth;
