@@ -74,7 +74,7 @@
 /* a comment that has a preceding hovered comment :before (straight line) */
 .comment:has(~ .comment:hover)::before {
   border-color: #fff;
-  z-index: 0;
+  z-index: 1;
 }
 .comment:hover > .avatar {
   border-color: #fff;
