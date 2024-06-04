@@ -26,11 +26,11 @@ class BrutalSlider extends HTMLElement {
             top:0;
             right:0;
             font-weight: bold;
-            font-size:20px;
-            padding: 16px;
+            font-size:14px;
+            padding: 7px;
             border-bottom-left-radius: 5px;
-            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
-            border: 3px solid #000;
+            box-shadow: 3px 3px 0px 1px rgb(0, 0, 0);
+            border: 1px solid #000;
             display: flex;
             gap: 10px;
             a {
@@ -182,12 +182,7 @@ class BrutalSlider extends HTMLElement {
             for (let i = 0; i < this.current; i++) {
                 size += slider.children[i].clientWidth;
             }
-            const tempTransition = `${slider.style.transition}`;
-            slider.style.transition = 'none';
             slider.style.transform = `translateX(${-size}px)`;
-            setTimeout(() => {
-                slider.style.transition = tempTransition;
-            }, 1);
         });
         shadow.appendChild(createStyles(this.createCardStyles()));
         shadow.appendChild(createStyles(this.createSliderStyles()));
