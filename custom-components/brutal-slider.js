@@ -63,6 +63,8 @@ class BrutalSlider extends HTMLElement {
         .button--right {
             right: -10px;
             bottom: -10px;
+            left: auto;
+            top: auto;
         }
     `;
     };
