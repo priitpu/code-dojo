@@ -31,6 +31,8 @@ class BrutalSlider extends HTMLElement {
             border-bottom-left-radius: 5px;
             box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
             border: 3px solid #000;
+            display: flex;
+            gap: 10px;
             a {
                 color: #fff;
                 text-decoration: none;
@@ -119,6 +121,7 @@ class BrutalSlider extends HTMLElement {
         tag.appendChild(a);
         a.textContent = 'Source';
         a.href = `https://github.com/priitpu/code-dojo/tree/main/${window.location.href.split('/').at(-1)}/${folder}`;
+        a.target = '_blank';
         return card;
     };
     createSlider = () => {
