@@ -16,29 +16,29 @@
   }
 }
 .comment {
-  color: #fff;
+  color: #969696;
   min-height: var(--magic-number);
   width: 100%;
-  background-color: gray;
+  background-color: #2f2f2f;
   position: relative;
   display: grid;
   grid-template-columns: var(--magic-number) 1fr;
   grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
   grid-template-areas: "avatar ." "avatar children";
-  padding: calc(var(--magic-number) / 10);
+  padding: calc(var(--magic-number) / 5);
 }
 .content {
   height: 100%;
   display: flex;
 }
 .avatar {
-  width: calc(var(--magic-number) / 4);
-  height: calc(var(--magic-number) / 4);
+  width: calc(var(--magic-number) / 2);
+  height: calc(var(--magic-number) / 2);
   border-radius: 100%;
   grid-area: avatar;
-  background: gray;
+  background: #2f2f2f;
   z-index: 1;
-  border: 2px solid #fff;
+  border: 2px solid #969696;
 }
 .children {
   grid-area: children;
@@ -47,8 +47,8 @@
 .comment:has(~ .comment)::before {
   content: "";
   position: absolute;
-  inset: calc(var(--magic-number) / -4) 0 0 calc(var(--magic-number) * -2);
-  border-left: 1px solid #fff;
+  inset: calc(var(--magic-number) / -2) 0 0 calc(var(--magic-number) * -1);
+  border-left: 1px solid #969696;
   width: var(--magic-number);
   height: 100%;
   transform: translateX(calc(25% - 2px));
@@ -58,20 +58,20 @@
   content: "";
   width: var(--magic-number);
   height: var(--magic-number);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-left: 1px solid #969696;
+  border-bottom: 1px solid #969696;
   border-bottom-left-radius: 35px;
-  inset: calc(var(--magic-number) * -2) 0 0 calc(var(--magic-number) * -2);
+  inset: calc(var(--magic-number) * -1) 0 0 calc(var(--magic-number) * -1);
   transform: translate(calc(25% - 2px), calc(50% - 5px));
   position: absolute;
   z-index: 0;
 }
 .comment:hover::after,
 .comment:has(~ .comment:hover)::before {
-  border-color: red;
+  border-color: #fff;
   z-index: 1;
 }
 .comment:hover > .avatar {
-  border-color: red;
+  border-color: #fff;
   z-index: 1;
 }
