@@ -27,6 +27,7 @@ class BrutalSlider extends HTMLElement {
             right:0;
             font-weight: bold;
             font-size:20px;
+            padding: 16px;
         }
         `;
     };
@@ -100,6 +101,7 @@ class BrutalSlider extends HTMLElement {
         const tag = document.createElement('div');
         card.appendChild(tag);
         tag.textContent = folder;
+        tag.className = 'tag';
         tag.style.backgroundColor = getRandomColor();
         return card;
     };
