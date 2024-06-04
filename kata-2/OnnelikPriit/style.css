@@ -23,8 +23,8 @@
   position: relative;
   display: grid;
   grid-template-columns: var(--magic-number) 1fr;
-  grid-template-rows: var(--magic-number) max-content 1fr;
-  grid-template-areas: "avatar info" "avatar ." "avatar children";
+  grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
+  grid-template-areas: "avatar ." "avatar children";
   padding: calc(var(--magic-number) / 5);
 }
 .content {
@@ -83,9 +83,4 @@
 .comment:hover > .avatar {
   border-color: #fff;
   z-index: 0;
-}
-.info {
-  display: flex;
-  gap: 16px;
-  grid-area: info;
 }
