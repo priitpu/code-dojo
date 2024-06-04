@@ -27,7 +27,7 @@ class BrutalSlider extends HTMLElement {
         .slider {
             display: flex;
             width: 100%;
-            height: 90svh;
+            height: 80svh;
             transition: transform 0.3s ease-in-out;
         }
         .slider-scroll {
