@@ -28,7 +28,6 @@ class BrutalSlider extends HTMLElement {
             display: flex;
             width: 100%;
             height: 90svh;
-            
             transition: transform 0.3s ease-in-out;
         }
         .slider-scroll {
@@ -57,8 +56,8 @@ class BrutalSlider extends HTMLElement {
             height: 100px;
             font-size: 70px;
             position: absolute;
-            left: -10px;
-            top: -25px;
+            left: -20px;
+            top: -70px;
             position: absolute;
             z-index: 1;
             cursor:pointer;
@@ -70,8 +69,8 @@ class BrutalSlider extends HTMLElement {
             transform: scale(1.01) translate(-2%, -2%);
         }
         .button--right {
-            right: -10px;
-            bottom: -25px;
+            right: -20px;
+            bottom: -70px;
             left: auto;
             top: auto;
         }
