@@ -28,6 +28,9 @@ class BrutalSlider extends HTMLElement {
             font-weight: bold;
             font-size:20px;
             padding: 16px;
+            border-bottom-left-radius: 5px;
+            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+            border: 3px solid #000;
         }
         `;
     };
