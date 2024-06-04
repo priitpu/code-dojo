@@ -15,6 +15,9 @@
     --magic-number: 100px;
   }
 }
+html {
+  font-family: "Source Sans 3", sans-serif;
+}
 .comment {
   color: #969696;
   min-height: var(--magic-number);
