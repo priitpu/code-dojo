@@ -26,7 +26,7 @@ class BrutalSlider extends HTMLElement {
         return `
         .slider {
             display: flex;
-            width: 85%;
+            width: 100%;
             height: 90svh;
             
             transition: transform 0.3s ease-in-out;
@@ -42,6 +42,7 @@ class BrutalSlider extends HTMLElement {
         }
         .container {
             position: relative;
+            width: 80%;
         }
         `;
     };
