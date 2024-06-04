@@ -38,6 +38,15 @@ class BrutalSlider extends HTMLElement {
         }
         `;
     };
+    createButtonStyles = () => {
+        return `
+        .button {
+            box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+            border: 3px solid #000;
+            border-radius: 5px;
+        }
+    `;
+    };
     createContainer = () => {
         const container = document.createElement('div');
         container.className = 'container';
@@ -61,22 +70,13 @@ class BrutalSlider extends HTMLElement {
         return [slider, sliderScroll];
     };
     createButtons = () => {
-        const shadow = this.attachShadow({ mode: 'open' });
         const [leftButton, rightButton] = [document.createElement('button'), document.createElement('button')];
-        const buttonStyles = `
-            .button {
-                box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
-                border: 3px solid #000;
-                border-radius: 5px;
-            }
-        `;
         leftButton.textContent = '<';
         rightButton.textContent = '>';
         leftButton.className = 'button';
         rightButton.className = 'button';
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
-        shadow.appendChild(createStyles(buttonStyles));
         return [leftButton, rightButton];
     };
     async connectedCallback() {
@@ -107,6 +107,7 @@ class BrutalSlider extends HTMLElement {
         });
         shadow.appendChild(createStyles(this.createCardStyles()));
         shadow.appendChild(createStyles(this.createSliderStyles()));
+        shadow.appendChild(createStyles(this.createButtonStyles()));
         shadow.appendChild(container);
         container.appendChild(leftButton);
         container.appendChild(sliderScroll);
