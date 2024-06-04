@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .comment {
+    color: #fff;
+    min-height: 100px;
+    width: 100%;
+    background-color: gray;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: minmax(100px, max-content) 1fr;
+    grid-template-areas: "avatar ." "avatar children";
+    padding: 20px;
+  }
+  .content {
+    height: 100%;
+    display: flex;
+  }
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    grid-area: avatar;
+    background: gray;
+    z-index: 1;
+    border: 2px solid #fff;
+  }
+  .children {
+    grid-area: children;
+    position: relative;
+  }
+  .comment:has(~ .comment)::before {
+    content: "";
+    position: absolute;
+    inset: -50px 0 0 -100px;
+    border-left: 1px solid #fff;
+    width: 100px;
+    height: 100%;
+    transform: translateX(calc(25% - 2px));
+    z-index: 0;
+  }
+  .comment .comment::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-bottom-left-radius: 35px;
+    inset: -100px 0 0 -100px;
+    transform: translate(calc(25% - 2px), calc(50% - 5px));
+    position: absolute;
+    z-index: 0;
+  }
+  .comment:hover::after,
+  .comment:has(~ .comment:hover)::before {
+    border-color: red;
+    z-index: 1;
+  }
+  .comment:hover > .avatar {
+    border-color: red;
+    z-index: 1;
+  }
+  
