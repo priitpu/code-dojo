@@ -25,7 +25,7 @@
   grid-template-columns: var(--magic-number) 1fr;
   grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
   grid-template-areas: "avatar ." "avatar children";
-  padding: 20px;
+  padding: calc(var(--magic-number) / 5);
 }
 .content {
   height: 100%;
@@ -51,7 +51,7 @@
   border-left: 1px solid #fff;
   width: var(--magic-number);
   height: 100%;
-  transform: translateX(calc(25% - 2px));
+  transform: translateX(calc(25% - calc(var(--magic-number) / 50)));
   z-index: 0;
 }
 .comment .comment::after {
@@ -62,7 +62,10 @@
   border-bottom: 1px solid #fff;
   border-bottom-left-radius: 35px;
   inset: calc(var(--magic-number) * -1) 0 0 calc(var(--magic-number) * -1);
-  transform: translate(calc(25% - 2px), calc(50% - 5px));
+  transform: translate(
+    calc(25% - calc(var(--magic-number) / 50)),
+    calc(50% - calc(var(--magic-number / 20)))
+  );
   position: absolute;
   z-index: 0;
 }
