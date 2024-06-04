@@ -10,26 +10,20 @@ class BrutalSlider extends HTMLElement {
         const res = await fetch(this.getAttribute('src'));
         return await res.json();
     };
-    createContainer = () => {
-        const shadow = this.attachShadow({ mode: 'open' });
-        const container = document.createElement('div');
-        container.className = 'container';
-        return container;
+    createCardStyles = () => {
+        return `
+        .card {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          background-color: #fdfd96;
+          margin: 0 auto;
+          position: relative;
+          flex-shrink: 0;
+        }`;
     };
-    createCard = () => {
-        const shadow = this.attachShadow({ mode: 'open' });
-        const card = document.createElement('div');
-        const iframe = document.createElement('iframe');
-        iframe.src = folder;
-        iframe.width = '100%';
-        iframe.height = '100%';
-        card.classList.add('card');
-        card.appendChild(iframe);
-        return card;
-    };
-    createSlider = () => {
-        const shadow = this.attachShadow({ mode: 'open' });
-        const sliderStyles = `
+    createSliderStyles = () => {
+        return `
         .slider {
             display: flex;
             width: 100%;
@@ -43,11 +37,27 @@ class BrutalSlider extends HTMLElement {
             overflow: hidden;
         }
         `;
+    };
+    createContainer = () => {
+        const container = document.createElement('div');
+        container.className = 'container';
+        return container;
+    };
+    createCard = () => {
+        const card = document.createElement('div');
+        const iframe = document.createElement('iframe');
+        iframe.src = folder;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        card.classList.add('card');
+        card.appendChild(iframe);
+        return card;
+    };
+    createSlider = () => {
         const slider = document.createElement('div');
         slider.className = 'slider';
         const sliderScroll = document.createElement('div');
         sliderScroll.className = 'slider-scroll';
-        shadow.appendChild(createStyles(sliderStyles));
         return [slider, sliderScroll];
     };
     createButtons = () => {
@@ -72,6 +82,9 @@ class BrutalSlider extends HTMLElement {
     async connectedCallback() {
         const shadow = this.attachShadow({ mode: 'open' });
         const folders = await this.fetchFolders();
+        const container = this.createContainer();
+        const [slider, sliderScroll] = this.createSlider();
+        const [leftButton, rightButton] = this.createButtons();
         rightButton.addEventListener('click', () => {
             this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = 0;
             let size = 0;
@@ -88,25 +101,12 @@ class BrutalSlider extends HTMLElement {
             }
             slider.style.transform = `translateX(${-size}px)`;
         });
-        const container = this.createContainer();
-        const [slider, sliderScroll] = this.createSlider();
-        const [leftButton, rightButton] = this.createButtons();
         folders.forEach((folder) => {
             const card = this.createCard(folder);
             slider.appendChild(card);
-
         });
-        const cardStyles = `
-        .card {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          background-color: #fdfd96;
-          margin: 0 auto;
-          position: relative;
-          flex-shrink: 0;
-        }`;
-        shadow.appendChild(createStyles(cardStyles));
+        shadow.appendChild(createStyles(this.createCardStyles()));
+        shadow.appendChild(createStyles(this.createSliderStyles()));
         shadow.appendChild(container);
         container.appendChild(leftButton);
         container.appendChild(sliderScroll);
