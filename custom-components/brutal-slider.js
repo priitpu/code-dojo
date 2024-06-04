@@ -72,8 +72,6 @@ class BrutalSlider extends HTMLElement {
     async connectedCallback() {
         const shadow = this.attachShadow({ mode: 'open' });
         const folders = await this.fetchFolders();
-
-
         rightButton.addEventListener('click', () => {
             this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = 0;
             let size = 0;
