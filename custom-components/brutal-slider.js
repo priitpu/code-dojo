@@ -60,6 +60,9 @@ class BrutalSlider extends HTMLElement {
             position: absolute;
             z-index: 1;
             cursor:pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .button:hover {
             transform: scale(1.01) translate(-2%, -2%);
@@ -139,6 +142,13 @@ class BrutalSlider extends HTMLElement {
         folders.forEach((folder) => {
             const card = this.createCard(folder);
             slider.appendChild(card);
+        });
+        window.addEventListener('resize', () => {
+            let size = 0;
+            for (let i = 0; i < this.current; i++) {
+                size += slider.children[i].clientWidth;
+            }
+            slider.style.transform = `translateX(${-size}px)`;
         });
         shadow.appendChild(createStyles(this.createCardStyles()));
         shadow.appendChild(createStyles(this.createSliderStyles()));
