@@ -58,7 +58,7 @@ class BrutalSlider extends HTMLElement {
             for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
                 size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
             }
-            slider.style.transform = `translateX(${size * 100}%)`;
+            slider.style.transform = `translateX(${-size}px)`;
 
         });
         rightButton.addEventListener('click', () => {
@@ -66,7 +66,7 @@ class BrutalSlider extends HTMLElement {
             for (let i = 0; i < shadow.querySelectorAll('.card').length; i++) {
                 size += shadow.querySelectorAll('.card')[i - 1].getBoundingClientRect().width;
             }
-            slider.style.transform = `translateX(${size * 100}%)`;
+            slider.style.transform = `translateX(${-size}px)`;
         });
         const container = document.createElement('div');
         container.className = 'container';
