@@ -40,6 +40,9 @@ class BrutalSlider extends HTMLElement {
         iframe {
             border: 0;
         }
+        .container {
+            position: relative;
+        }
         `;
     };
     createButtonStyles = () => {
