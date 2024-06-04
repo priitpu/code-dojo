@@ -121,7 +121,7 @@ class BrutalSlider extends HTMLElement {
         const [slider, sliderScroll] = this.createSlider();
         const [leftButton, rightButton] = this.createButtons();
         rightButton.addEventListener('click', () => {
-            this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = 0;
+            this.current + 1 <= shadow.querySelectorAll('.card').length - 1 ? this.current++ : this.current = shadow.querySelectorAll('.card').length - 1;
             let size = 0;
             for (let i = 0; i < this.current; i++) {
                 size += slider.children[i].clientWidth;
