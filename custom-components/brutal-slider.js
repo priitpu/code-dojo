@@ -24,7 +24,7 @@ class BrutalSlider extends HTMLElement {
         .tag {
             position: absolute;
             top:0;
-            right:0;
+            right:15px;
             font-weight: bold;
             font-size:14px;
             padding: 7px;
@@ -33,12 +33,13 @@ class BrutalSlider extends HTMLElement {
             border: 1px solid #000;
             display: flex;
             gap: 10px;
+            align-items: center;
             a {
                 color: #fff;
                 text-decoration: none;
                 background-color: #000;
                 padding: 2px;
-                font-size: 1rem;
+                font-size: 14px;
               }
         }
         `;
