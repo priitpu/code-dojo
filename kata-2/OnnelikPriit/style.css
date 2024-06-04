@@ -25,7 +25,7 @@
   grid-template-columns: var(--magic-number) 1fr;
   grid-template-rows: minmax(var(--magic-number), max-content) 1fr;
   grid-template-areas: "avatar ." "avatar children";
-  padding: 20px;
+  padding: calc(var(--magic-number) / 5);
 }
 .content {
   height: 100%;
