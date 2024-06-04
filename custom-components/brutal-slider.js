@@ -31,6 +31,13 @@ class BrutalSlider extends HTMLElement {
             border-bottom-left-radius: 5px;
             box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
             border: 3px solid #000;
+            a {
+                color: #fff;
+                text-decoration: none;
+                background-color: #000;
+                padding: 2px;
+                font-size: 1rem;
+              }
         }
         `;
     };
@@ -108,6 +115,10 @@ class BrutalSlider extends HTMLElement {
         tag.textContent = folder;
         tag.className = 'tag';
         tag.style.backgroundColor = getRandomColor();
+        const a = document.createElement('a');
+        tag.appendChild(a);
+        a.textContent = 'Source';
+        a.href = `https://github.com/priitpu/code-dojo/tree/main/${window.location.href.split('/').at(-1)}/${folder}`;
         return card;
     };
     createSlider = () => {
