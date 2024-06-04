@@ -93,7 +93,7 @@ class BrutalSlider extends HTMLElement {
         leftButton.textContent = '<';
         rightButton.textContent = '>';
         leftButton.className = 'button';
-        rightButton.className = 'button';
+        rightButton.className = 'button button--right';
         leftButton.style.backgroundColor = getRandomColor();
         rightButton.style.backgroundColor = getRandomColor();
         return [leftButton, rightButton];
