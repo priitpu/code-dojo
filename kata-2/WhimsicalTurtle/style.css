@@ -1,0 +1,134 @@
+body {
+  background: #121212;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+.the-list {
+  background: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  max-width: 712px;
+  width: 100%;
+  margin: 64px auto;
+  list-style: none;
+  padding: 0;
+  .the-list {
+    margin: 0;
+  }
+  .list-item {
+    padding-left: 28px;
+  }
+}
+
+.list-item {
+  position: relative;
+}
+
+.level-0 {
+  padding-top: 16px;
+}
+
+.chat-head {
+  position: relative;
+}
+
+.chat-footer {
+  padding-bottom: 32px;
+}
+
+ul li:last-of-type > {
+  .list-item-wrapper {
+    .chat-icon {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+ul li:not(:first-of-type):last-of-type > {
+  .list-item-wrapper {
+    &:before {
+      display: none;
+    }
+    .chat-icon {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.level-1 .the-list {
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    inset-block-start: 0px;
+    inset-inline-start: 40px;
+    z-index: 0;
+    border-left: #969696 1px solid;
+  }
+}
+
+.list-item-wrapper {
+  display: flex;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    inset-block-start: 0px;
+    inset-inline-start: 12px;
+    z-index: 1;
+    border-left: #969696 1px solid;
+  }
+}
+
+ul li:first-of-type {
+  & > .list-item-wrapper {
+    .chat-icon {
+      &:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        inset-block-start: -2px;
+        inset-inline-start: -16px;
+        border-bottom: #969696 1px solid;
+        border-left: #969696 1px solid;
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+}
+
+.chat-icon {
+  height: 26px;
+  width: 26px;
+  border-radius: 26px;
+  background: #969696;
+  flex-shrink: 0;
+  position: relative;
+  margin-right: 16px;
+  z-index: 1;
+}
+
+.time {
+  margin-left: 16px;
+}
+
+a svg {
+  margin-right: 4px;
+}
+
+a + a {
+  margin-left: 16px;
+}
