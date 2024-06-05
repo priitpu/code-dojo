@@ -121,7 +121,7 @@ class BrutalSlider extends HTMLElement {
         const a = document.createElement('a');
         tag.appendChild(a);
         a.textContent = 'Source';
-        a.href = `https://github.com/priitpu/code-dojo/tree/main/${window.location.href.split('/').at(-1)}/${folder}`;
+        a.href = `https://github.com/priitpu/code-dojo/tree/main/${window.location.href.split('/').filter((el) => el).at(-1)}/${folder}`;
         a.target = '_blank';
         return card;
     };
