@@ -165,7 +165,7 @@ button {
 }
 
 .tooltip-inner::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   width: 0;
@@ -225,11 +225,11 @@ button {
     min-width: 128px;
     text-align: center;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 32px;
       height: 32px;
-      background: url('/assets/farmgrass.png') -64px 0 no-repeat;
+      background: url("./assets/farmgrass.png") -64px 0 no-repeat;
       image-rendering: pixelated;
       left: 50%;
       transform: translate(-50%, 6px) scale(4);
@@ -335,7 +335,7 @@ button {
     border-bottom-right-radius: 16px;
 
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       transition: transform 150ms linear;
       width: 20px;
