@@ -1,6 +1,6 @@
-import { to1D, to2D } from '../../utils/math';
-import { Vec2 } from '../../utils/vec2';
-import { Domie } from '../base/domie';
+import { to1D, to2D } from "../../utils/math";
+import { Vec2 } from "../../utils/vec2";
+import { Domie } from "../base/domie";
 
 // Unused bitmask for drawing fields of grass.
 // Mby I'll use it for something else :D
@@ -57,20 +57,20 @@ const FARMLAND = [
 ];
 
 export class BackgroundTiler extends Domie {
-  public canvas = document.createElement('canvas');
-  public ctx = this.canvas.getContext('2d');
+  public canvas = document.createElement("canvas");
+  public ctx = this.canvas.getContext("2d");
 
   public mapTileSize = 32;
   public mapImage!: HTMLImageElement;
 
-  constructor(public tileSize: number, private src = '/assets/farmgrass.png') {
-    super('background');
+  constructor(public tileSize: number, private src = "./assets/farmgrass.png") {
+    super("background");
     this.element.appendChild(this.canvas);
   }
 
   async preload() {
     return new Promise<void>((resolve, reject) => {
-      this.mapImage = document.createElement('img');
+      this.mapImage = document.createElement("img");
       this.mapImage.onload = () => resolve();
       this.mapImage.onerror = () => reject();
       this.mapImage.src = this.src;
@@ -124,7 +124,7 @@ export class BackgroundTiler extends Domie {
 
     // Position and scale the canvas to match the current field.
     this.canvas.style.setProperty(
-      'transform',
+      "transform",
       `translate(${(offset.x - 1.5) * this.tileSize}px, ${
         (offset.y - 1.5) * this.tileSize
       }px) scale(${this.tileSize / this.mapTileSize})`
