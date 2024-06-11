@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 import styles from "./LoadingScreen.module.css";
@@ -13,7 +12,7 @@ const LoadingScreen = () => {
           priority
           unoptimized
           className={styles.logo}
-          src="/assets/images/logo.png"
+          src="./assets/images/logo.png"
           alt="Farm Royale logo"
           width={210}
           height={100}

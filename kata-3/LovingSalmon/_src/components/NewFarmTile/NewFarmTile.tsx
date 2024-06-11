@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 import { useGameContext } from "@/context/GameContext";
@@ -33,7 +32,7 @@ const NewFarmTile = ({ newTileId }: Props) => {
             : undefined
         }
         className={styles.newTileImage}
-        src="/assets/images/new_farm_tile.png"
+        src="./assets/images/new_farm_tile.png"
         alt="New farm slot tile"
         width={100}
         height={100}
@@ -42,7 +41,7 @@ const NewFarmTile = ({ newTileId }: Props) => {
       <div className={styles.priceLabel}>
         <Image
           unoptimized
-          src="/assets/images/coin.png"
+          src="./assets/images/coin.png"
           alt="Coin currency"
           width={16}
           height={16}

@@ -44,7 +44,7 @@ const ShopItem = ({ shopItem }: Props) => {
       <span className={styles.buyPriceLabel}>
         <Image
           unoptimized
-          src="/assets/images/coin.png"
+          src="./assets/images/coin.png"
           alt="Coin currency"
           width={16}
           height={16}
@@ -68,7 +68,7 @@ const ShopItem = ({ shopItem }: Props) => {
                 unoptimized
                 key={index}
                 className={styles.mutationIcon}
-                src={`/assets/images/mutations/${mutation.iconName}.png`}
+                src={`./assets/images/mutations/${mutation.iconName}.png`}
                 alt="Mutation icon"
                 width={12}
                 height={12}
@@ -95,7 +95,7 @@ const ShopItem = ({ shopItem }: Props) => {
       <span className={styles.sellPriceLabel}>
         <Image
           unoptimized
-          src="/assets/images/coin.png"
+          src="./assets/images/coin.png"
           alt="Coin currency"
           width={16}
           height={16}

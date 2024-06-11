@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 import { useGameContext } from "@/context/GameContext";
 
-import styles from "./Header.module.css";
 import ChangelogModal from "@/components/ChangelogModal/ChangelogModal";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const { gameState, updateMoney } = useGameContext();
@@ -24,7 +23,7 @@ const Header = () => {
       <div className={styles.moneyBackground}>
         <Image
           unoptimized
-          src="/assets/images/coin.png"
+          src="./assets/images/coin.png"
           alt="Coin currency"
           width={24}
           height={24}
