@@ -1,14 +1,13 @@
-import React from "react";
-import Image from "next/image";
 import classnames from "classnames";
+import Image from "next/image";
 
 import { useGameContext } from "@/context/GameContext";
 
-import Crop from "@/types/Crop";
 import { getCropStageImageName } from "@/lib/utils";
+import Crop from "@/types/Crop";
 
-import TimeCounter from "./TimeCounter/TimeCounter";
 import styles from "./PlantedCrop.module.css";
+import TimeCounter from "./TimeCounter/TimeCounter";
 
 interface Props {
   crop: Crop;
@@ -43,7 +42,7 @@ const PlantedCrop = ({ crop, tileId }: Props) => {
             key={index}
             unoptimized
             className={styles.rarityStar}
-            src="/assets/images/mutations/star.png"
+            src="./assets/images/mutations/star.png"
             alt="Rarity star"
             width={20}
             height={20}
@@ -58,7 +57,7 @@ const PlantedCrop = ({ crop, tileId }: Props) => {
           hasCropGrown ? styles.cropSelectable : ""
         )}
         style={{
-          backgroundImage: `url(/assets/images/crops/${crop.imageName}/${getCropStageImageName(percent)}.png)`,
+          backgroundImage: `url(./assets/images/crops/${crop.imageName}/${getCropStageImageName(percent)}.png)`,
         }}
       />
 

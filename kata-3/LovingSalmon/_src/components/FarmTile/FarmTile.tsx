@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 import { useInterface } from "@/context/InterfaceContext";
@@ -29,7 +28,7 @@ const FarmTile = ({ tile }: Props) => {
         unoptimized
         data-name="tile"
         className={!hasCropPlanted ? styles.tileSelectable : undefined}
-        src="/assets/images/farm_slot_tile.png"
+        src="./assets/images/farm_slot_tile.png"
         alt="Farm slot tile"
         width={100}
         height={100}
