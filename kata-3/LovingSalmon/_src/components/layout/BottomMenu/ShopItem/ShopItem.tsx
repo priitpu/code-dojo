@@ -1,13 +1,12 @@
-import React from "react";
 import Image from "next/image";
 
-import { useInterface } from "@/context/InterfaceContext";
 import { useGameContext } from "@/context/GameContext";
+import { useInterface } from "@/context/InterfaceContext";
 
 import Crop from "@/types/Crop";
 
-import styles from "./ShopItem.module.css";
 import { getCountdownValues } from "@/lib/utils";
+import styles from "./ShopItem.module.css";
 
 interface Props {
   shopItem: any;
@@ -80,7 +79,7 @@ const ShopItem = ({ shopItem }: Props) => {
 
         <Image
           unoptimized
-          src={`/assets/images/crops/${shopItem.imageName}/crop.png`}
+          src={`./assets/images/crops/${shopItem.imageName}/crop.png`}
           alt={shopItem.name}
           width={36}
           height={36}
