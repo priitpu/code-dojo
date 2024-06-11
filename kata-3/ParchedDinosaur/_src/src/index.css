@@ -1,0 +1,8 @@
+:root {
+  --white-text-shadow: 0 0 1px rgb(5, 50, 50), 0 0 3px rgb(170, 195, 205);
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}

@@ -1,0 +1,21 @@
+.farm {
+  display: grid;
+}
+
+.hud {
+  position: absolute;
+  right: 16px;
+  top: 10%;
+  background-color: var(--color-hud-bg);
+  padding: 8px;
+  color: var(--color-light-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__text {
+    display: flex;
+    align-items: flex-end;
+    height: max-content;
+  }
+}

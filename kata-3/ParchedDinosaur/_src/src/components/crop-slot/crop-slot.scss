@@ -1,0 +1,139 @@
+:root {
+  --crop-loader-angle: 0deg;
+  --crop-loader-color: rgb(255, 35, 105);
+}
+
+.f-crop-slot {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(210, 205, 195);
+  aspect-ratio: 1;
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+
+  &--filled .top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1vw solid;
+    border-image-slice: 1;
+    border-image-source: conic-gradient(
+      from 180deg,
+      var(--crop-loader-color) 0deg var(--crop-loader-angle),
+      transparent var(--crop-loader-angle)
+    );
+    animation: activate-loader 10s linear forwards, 0.5s boing 10s;
+  }
+
+  &:not(:disabled):hover .top {
+    background-color: white;
+  }
+
+  .top {
+    position: absolute;
+    inset: 0;
+    transform: translateZ(2vw);
+    transition: transform 0.1s;
+    background-color: rgb(255, 250, 235);
+    box-shadow: inset 0 0 5vw 2vw rgba(0, 0, 0, 0.1);
+  }
+
+  .front,
+  .left,
+  .right {
+    position: absolute;
+    width: 100%;
+    height: 2vw;
+    box-sizing: border-box;
+    transition: height 0.1s;
+    bottom: 0;
+  }
+
+  .front {
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    background-color: rgb(170, 165, 155);
+  }
+
+  .right {
+    transform: rotateZ(90deg) rotateX(-90deg);
+    transform-origin: bottom right;
+    background-color: rgb(120, 115, 105);
+  }
+
+  .left {
+    transform: rotateZ(-90deg) rotateX(-90deg);
+    transform-origin: bottom left;
+    background-color: rgb(120, 115, 105);
+  }
+
+  &:has(.f-crop-img) .top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.4) 10%,
+      rgba(0, 0, 0, 0.15) 20%,
+      rgba(0, 0, 0, 0) 30%
+    );
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity, transform 0.1s;
+  }
+
+  &:active {
+    .top {
+      transform: translateZ(1vw);
+      &::before {
+        opacity: 0.7;
+        transform: scale(0.7);
+      }
+    }
+
+    .front,
+    .left,
+    .right {
+      height: 1vw;
+    }
+  }
+}
+
+.f-crop-img {
+  width: 25%;
+  transform: translateZ(2.2vw) rotateX(270deg);
+  transform-origin: bottom;
+}
+
+@property --crop-loader-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --crop-loader-color {
+  syntax: '<color>';
+  initial-value: rgb(255, 35, 105);
+  inherits: false;
+}
+
+@keyframes activate-loader {
+  50% {
+    --crop-loader-color: rgb(245, 250, 29);
+  }
+  to {
+    --crop-loader-angle: 360deg;
+    --crop-loader-color: rgb(20, 255, 170);
+  }
+}
+
+@keyframes boing {
+  50% {
+    border-width: 2vw;
+  }
+  to {
+    border-width: 1vw;
+  }
+}

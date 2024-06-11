@@ -1,0 +1,56 @@
+.f-field {
+  padding: 1vw 2vw;
+  padding-top: 0.5vw;
+  background-image: linear-gradient(
+    rgba(90, 85, 75, 0.1),
+    rgba(90, 85, 75, 0.3)
+  );
+  background-image: linear-gradient(
+    rgba(90, 85, 75, 0.1),
+    rgba(90, 85, 75, 0.3)
+  );
+}
+
+.f-field-container {
+  position: relative;
+}
+
+.f-field-perspective {
+  perspective: 100vw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.f-field-grid {
+  display: grid;
+  gap: 1.5vw;
+  grid-template-columns: repeat(3, 1fr);
+  transform-style: preserve-3d;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+@media only screen and (max-width: 450px) {
+  .f-field {
+    padding: 1vw;
+  }
+
+  .f-field-container {
+    display: contents;
+  }
+
+  .f-field-perspective {
+    perspective: none;
+    position: static;
+  }
+
+  .f-field-grid {
+    transform: none;
+  }
+
+  .f-crop-img {
+    transform: translateZ(2.2vw);
+    width: 30%;
+  }
+}

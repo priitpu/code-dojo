@@ -1,0 +1,26 @@
+{
+  "name": "revenge-of-the-farmer",
+  "private": true,
+  "version": "0.43.0",
+  "type": "module",
+  "scripts": {
+    "dev:gui": "vite",
+    "dev:api": "node src-api/main.cjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0",
+    "vite-plugin-pwa": "^0.20.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.1"
+  }
+}

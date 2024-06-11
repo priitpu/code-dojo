@@ -1,0 +1,84 @@
+.plot {
+  width: 50px;
+  height: 50px;
+  grid-column: var(--grid-col);
+  grid-row: var(--grid-row);
+  position: relative;
+}
+
+.plowed {
+  background-image: url(/src/assets/farmland.png);
+  background-size: 50px 50px;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background-position: center;
+}
+
+.empty-plot {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background-color: rgb(0 0 0 / 20%);
+  &:has(.empty-plot__plus) {
+    &:hover {
+      cursor: url(/src/assets/hoe.webp), pointer;
+      & .empty-plot__plus {
+        animation-name: plus-shake;
+        animation-duration: 0.25s;
+      }
+    }
+  }
+
+  &__plus {
+    background-image: url(/src/assets/plus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+    background-blend-mode: color;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.options {
+  position: absolute;
+  list-style: none;
+  background-color: var(--color-gray);
+  z-index: 1;
+  top: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flower {
+  border: 0;
+  outline: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  &__img {
+    background-color: transparent;
+    transform: scale(var(--growth-stage));
+  }
+}
+
+@keyframes plus-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  40% {
+    transform: rotate(25deg);
+  }
+  60%,
+  90% {
+    transform: rotate(-25deg);
+  }
+}

@@ -43,6 +43,8 @@ export function Plot(props: IPlot) {
         background: getImage(props.seed),
       }}
       onClick={handleClick}
-    ></button>
+    >
+      {props.seed}
+    </button>
   );
 }

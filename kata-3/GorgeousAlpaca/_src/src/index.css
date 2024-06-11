@@ -1,0 +1,36 @@
+@layer base;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: blocky;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/src/assets/grass.avif);
+    background-size: 50px 50px;
+  }
+
+  @font-face {
+    font-family: blocky;
+    src: url(/src/assets/font.ttf);
+  }
+
+  :root {
+    --color-white: white;
+    --color-gray: #c5c5c5;
+    --color-gray-alternate: #8b8b8b;
+    --color-dark-gray: #373737;
+    --color-light-gray: #dddddd;
+    --color-hud-bg: rgba(41, 5, 96, 0.4);
+    --color-purple: #290560;
+    --color-dark-purple: #170817;
+    --color-red: #aa0000;
+  }
+}

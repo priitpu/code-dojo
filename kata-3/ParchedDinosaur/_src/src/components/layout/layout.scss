@@ -1,0 +1,6 @@
+.f-layout {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  // grid-template-areas: 'header header' 'field menu';
+}

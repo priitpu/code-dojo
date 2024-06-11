@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kata3</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        height: 5rem;
+        background-color: blanchedalmond;
+        font-size: 3rem;
+        font-weight: 700;
+
+        span {
+          margin: auto;
+        }
+      }
+
+      section {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        background-color: burlywood;
+        height: calc(100vh - 5rem);
+
+        .field-wrapper {
+          display: grid;
+          grid-gap: 0.75rem;
+          grid-template-columns: repeat(3, 8rem);
+          grid-template-rows: repeat(3, 8rem);
+
+          div {
+            input {
+              background-color: burlywood;
+              border: 1px solid chocolate;
+              border-radius: 1rem;
+              height: 100%;
+              width: 100%;
+              text-align: center;
+              font-size: 2rem;
+            }
+
+            input:focus {
+              border-color: crimson;
+              border-width: 2px;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .loader {
+        animation: rotation 5s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <span id="wallet"></span>
+    </header>
+
+    <section>
+      <div class="field-wrapper">
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="1" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="2" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="3" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="4" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="5" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="6" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="7" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="8" />
+        </div>
+
+        <div>
+          <label for="vegetable-type"></label>
+          <input list="vegetable-type" id="9" />
+        </div>
+
+        <datalist id="vegetable-type">
+          <option value="potato" label="3sec 3rublat"></option>
+          <option value="garlic" label="4sec 4rublat"></option>
+          <option value="onion" label="5sec 5rublat"></option>
+        </datalist>
+      </div>
+    </section>
+
+    <script>
+      const timeOuts = {
+        potato: { duration: 3, salary: 3 },
+        garlic: { duration: 4, salary: 4 },
+        onion: { duration: 5, salary: 5 },
+      };
+
+      const walletElement = document.querySelector("#wallet");
+
+      let sum = 100;
+      walletElement.textContent = `${String(sum)}€`;
+
+      document.querySelectorAll("input[list]").forEach((inputElement) => {
+        inputElement.addEventListener("change", () => {
+          inputElement.parentNode.classList.add("loader");
+          const milliSeconds =
+            Number(timeOuts[inputElement.value]["duration"]) * 1000;
+
+          setTimeout(() => {
+            const currentInputElement = document.querySelector(
+              `input[id="${inputElement["id"]}"]`
+            );
+            currentInputElement.value = String(
+              timeOuts[inputElement.value]["salary"]
+            );
+            currentInputElement.style.cursor = "pointer";
+            inputElement.parentNode.classList.remove("loader");
+          }, milliSeconds);
+        });
+
+        inputElement.addEventListener("click", (event) => {
+          if (
+            !(event.target.value === "") &&
+            Number.isInteger(Number(event.target.value))
+          ) {
+            const currentInputElement = document.querySelector(
+              `input[id="${inputElement["id"]}"]`
+            );
+            const salary = Number(currentInputElement.value);
+            sum += salary;
+            walletElement.textContent = `${String(sum)}€`;
+
+            currentInputElement.value = "";
+            currentInputElement.style.cursor = "";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

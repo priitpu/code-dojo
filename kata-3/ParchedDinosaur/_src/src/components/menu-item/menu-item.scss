@@ -1,0 +1,55 @@
+.f-menu-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+    height: 4rem;
+    width: 4rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+
+    &:hover {
+      img {
+        scale: 1;
+      }
+
+      & + p {
+        color: rgb(90, 85, 75);
+        text-shadow: none;
+      }
+    }
+
+    &:disabled {
+      pointer-events: none;
+      filter: grayscale(1);
+
+      & + p {
+        color: rgb(255, 35, 105);
+        text-shadow: none;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    font-weight: 700;
+    color: white;
+    text-shadow: var(--white-text-shadow);
+  }
+
+  img {
+    width: 100%;
+    scale: 0.8;
+    transition: scale 0.3s;
+  }
+
+  &--active {
+    button {
+      outline: 5px solid rgb(20, 220, 150);
+      outline-offset: -2px;
+    }
+  }
+}

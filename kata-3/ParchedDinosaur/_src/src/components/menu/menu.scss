@@ -1,0 +1,29 @@
+.f-menu {
+  z-index: 1;
+  background-image: linear-gradient(#d6e7eb, transparent);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.f-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.f-menu-balance {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
+  text-shadow: var(--white-text-shadow);
+}
+
+@media only screen and (max-width: 680px) {
+  .f-menu {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+}
