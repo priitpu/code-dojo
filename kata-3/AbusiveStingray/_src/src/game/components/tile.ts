@@ -1,13 +1,13 @@
-import { h } from '../../utils/h';
-import { Vec2Like } from '../../utils/vec2';
-import { Domie } from '../base/domie';
-import { Plant, Plants } from './plants';
-import { ProgressCircle } from './progress-circle';
-import { Serialized, SerializedTile } from '../base/serialized';
-import { StateMachine } from '../base/state-machine';
-import { Tickable } from '../base/tickable';
-import { useSetDistinct } from '../../utils/distinct';
-import { secondsToHMS } from '../../utils/time';
+import { useSetDistinct } from "../../utils/distinct";
+import { h } from "../../utils/h";
+import { secondsToHMS } from "../../utils/time";
+import { Vec2Like } from "../../utils/vec2";
+import { Domie } from "../base/domie";
+import { Serialized, SerializedTile } from "../base/serialized";
+import { StateMachine } from "../base/state-machine";
+import { Tickable } from "../base/tickable";
+import { Plant, Plants } from "./plants";
+import { ProgressCircle } from "./progress-circle";
 
 export class Tile
   extends Domie
@@ -20,24 +20,24 @@ export class Tile
 
   // Tile inner elements
   protected progress = new ProgressCircle(20, 4);
-  protected timer = h('div', ['tile-timer'], '');
-  protected image = h('img', ['tile-picture'], undefined, {
-    attr: { draggable: 'false' },
+  protected timer = h("div", ["tile-timer"], "");
+  protected image = h("img", ["tile-picture"], undefined, {
+    attr: { draggable: "false" },
   });
-  protected payout = h('span', ['tile-payout'], '');
+  protected payout = h("span", ["tile-payout"], "");
 
   // Prevent updating the DOM every tick unnecessarily.
   private setTime = useSetDistinct((time) => {
     this.timer.innerHTML = time;
-  }, '');
+  }, "");
 
   private setPayout = useSetDistinct((payout) => {
     this.payout.innerText = payout;
-  }, '');
+  }, "");
 
   private setPicture = useSetDistinct((src) => {
     this.image.src = src;
-  }, '');
+  }, "");
 
   // This is mainly an experiment, it's probably not used correctly.
   // ...and probably not even necessary in the first place.
@@ -46,15 +46,15 @@ export class Tile
       dirt: {
         actions: {
           onEnter: () => {
-            this.element.classList.add('tile-dirt');
+            this.element.classList.add("tile-dirt");
           },
           onLeave: () => {
-            this.element.classList.remove('tile-dirt');
+            this.element.classList.remove("tile-dirt");
           },
         },
         transitions: {
           plant: {
-            target: 'growing',
+            target: "growing",
             action: (name: string) => {
               this.currentPlant = new Plants[name]();
             },
@@ -64,10 +64,10 @@ export class Tile
       growing: {
         actions: {
           onEnter: () => {
-            this.element.classList.add('tile-growing');
+            this.element.classList.add("tile-growing");
           },
           onLeave: () => {
-            this.element.classList.remove('tile-growing');
+            this.element.classList.remove("tile-growing");
             this.progress.setProgress(0);
             this.updateTimer();
             this.updatePayout();
@@ -75,13 +75,13 @@ export class Tile
         },
         transitions: {
           clear: {
-            target: 'dirt',
+            target: "dirt",
             action: () => {
               this.currentPlant = undefined;
             },
           },
           finish: {
-            target: 'ready',
+            target: "ready",
             action: () => {},
           },
         },
@@ -89,7 +89,7 @@ export class Tile
       ready: {
         actions: {
           onEnter: () => {
-            this.element.classList.add('tile-ready');
+            this.element.classList.add("tile-ready");
             this.progress.setProgress(100);
             this.updateTimer();
             this.updatePayout();
@@ -97,7 +97,7 @@ export class Tile
           },
           onLeave: () => {
             this.currentPlant = undefined;
-            this.element.classList.remove('tile-ready');
+            this.element.classList.remove("tile-ready");
             this.progress.setProgress(0);
             this.updateTimer();
             this.updatePayout();
@@ -106,38 +106,38 @@ export class Tile
         },
         transitions: {
           harvest: {
-            target: 'dirt',
+            target: "dirt",
             action: () => {},
           },
         },
       },
     },
-    'dirt'
+    "dirt"
   );
 
   constructor(public x: number, public y: number) {
-    super('tile');
+    super("tile");
     this.setup();
   }
 
   plant(name: string) {
-    if (this.currentPlant || this.state.value !== 'dirt') return;
-    this.state.transition('dirt', 'plant', name);
+    if (this.currentPlant || this.state.value !== "dirt") return;
+    this.state.transition("dirt", "plant", name);
   }
 
   harvest() {
-    if (!this.currentPlant || this.state.value !== 'ready') return;
+    if (!this.currentPlant || this.state.value !== "ready") return;
     const harvested = this.currentPlant;
-    this.state.transition('ready', 'harvest');
+    this.state.transition("ready", "harvest");
     return harvested;
   }
 
   tick(time: number) {
-    if (!this.currentPlant || this.state.value === 'ready') return;
+    if (!this.currentPlant || this.state.value === "ready") return;
     this.currentPlant.tick(time);
 
     if (this.currentPlant.ready) {
-      this.state.transition('growing', 'finish');
+      this.state.transition("growing", "finish");
     }
 
     this.progress.setProgress(this.currentPlant.percentage);
@@ -152,8 +152,8 @@ export class Tile
       this.currentPlant.deserialize(pojo.plant);
     }
 
-    if (pojo.state && pojo.state !== 'dirt') {
-      this.state.change('dirt', pojo.state as 'ready' | 'growing');
+    if (pojo.state && pojo.state !== "dirt") {
+      this.state.change("dirt", pojo.state as "ready" | "growing");
     }
   }
 
@@ -161,26 +161,26 @@ export class Tile
     return {
       xy: [this.x, this.y],
       plant: this.currentPlant?.serialize(),
-      state: this.state.value !== 'dirt' ? this.state.value : undefined,
+      state: this.state.value !== "dirt" ? this.state.value : undefined,
     };
   }
 
   protected updateTimer() {
     if (!this.currentPlant) {
-      this.setTime('');
+      this.setTime("");
       return;
     }
 
     this.setTime(
       this.currentPlant.timeLeft
         ? `${secondsToHMS(Math.ceil(this.currentPlant.timeLeft))}`
-        : 'Ready!'
+        : "Ready!"
     );
   }
 
   protected updatePayout() {
     if (!this.currentPlant?.ready) {
-      this.setPayout('');
+      this.setPayout("");
       return;
     }
 
@@ -189,19 +189,19 @@ export class Tile
 
   protected updatePicture() {
     if (!this.currentPlant) {
-      this.setPicture('');
+      this.setPicture("");
       return;
     }
 
     this.setPicture(
-      `/assets/plants/${this.currentPlant.name}/${this.currentPlant.stage}.png`
+      `./assets/plants/${this.currentPlant.name}/${this.currentPlant.stage}.png`
     );
   }
 
   protected setup() {
-    this.element.classList.add('tile-dirt');
-    this.element.style.setProperty('--tile-pos-x', String(this.x));
-    this.element.style.setProperty('--tile-pos-y', String(this.y));
+    this.element.classList.add("tile-dirt");
+    this.element.style.setProperty("--tile-pos-x", String(this.x));
+    this.element.style.setProperty("--tile-pos-y", String(this.y));
     this.progress.mount(this);
     this.progress.element.appendChild(this.timer);
     this.element.appendChild(this.image);

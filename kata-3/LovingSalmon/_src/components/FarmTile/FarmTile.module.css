@@ -1,0 +1,10 @@
+.container {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.tileSelectable:hover {
+  cursor: pointer;
+  filter: var(--filter-outline);
+}

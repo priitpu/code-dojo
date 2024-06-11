@@ -1,0 +1,17 @@
+.container {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  height: 100%;
+  padding: 4rem 2rem calc(2rem + 80px);
+  background-image: url("/assets/images/grass_tile.jpg");
+  background-color: rgba(255, 0, 0, 0.15);
+  background-size: 220px;
+  background-attachment: local;
+  background-blend-mode: multiply;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.buyPriceLabel {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #fff;
+}
+
+.sellPriceLabel {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #1fd70f;
+}
+
+.shopItem {
+  position: relative;
+  background-color: #764228;
+  border-radius: 0.5rem;
+  border: 2px solid #4f3122;
+  padding: 6px;
+  padding-top: 12px;
+}
+
+.shopItem:hover {
+  cursor: pointer;
+  filter: var(--filter-outline);
+  background-color: #6c3d26;
+}
+
+.rarityLabel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px;
+  font-size: 10px;
+  color: #fff;
+  font-weight: 600;
+  border-bottom-left-radius: 0.5rem;
+  background-color: #4f3122;
+}
+
+.durationLabel {
+  display: flex;
+  gap: 2px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px 4px;
+  font-size: 10px;
+  color: #fff;
+  font-weight: 600;
+  border-top-left-radius: 0.5rem;
+  background-color: #4f3122;
+}

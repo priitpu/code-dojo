@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #764228;
+  border-bottom: 2px solid #4f3122;
+  padding: 0 calc(50px + 2rem);
+  z-index: 11;
+}
+
+.moneyBackground {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #4f3122;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  top: 20px;
+}
+
+.moneyAmountNumber {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actionsContainer {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 1rem;
+}

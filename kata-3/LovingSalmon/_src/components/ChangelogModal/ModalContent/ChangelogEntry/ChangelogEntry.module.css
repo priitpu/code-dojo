@@ -1,0 +1,9 @@
+.container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.container:not(:first-child) {
+  border-top: 1px dashed #ccc;
+  padding-top: 16px;
+}

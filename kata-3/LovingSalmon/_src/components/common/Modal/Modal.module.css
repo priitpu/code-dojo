@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+  border: none;
+  left: 1rem;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+
+.container::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  line-height: 1rem;
+  line-height: 18px;
+  font-weight: 600;
+  padding: 0.25rem;
+  cursor: pointer;
+}

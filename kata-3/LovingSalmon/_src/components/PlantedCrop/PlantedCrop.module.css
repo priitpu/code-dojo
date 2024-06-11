@@ -1,0 +1,39 @@
+.container {
+  color: #fff;
+  font-weight: 700;
+  position: absolute;
+  inset: 0;
+  top: -10px;
+  z-index: 1;
+}
+
+.cropStageImage {
+  margin: 0 auto;
+  width: 60px;
+  height: 84px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cropSelectable:hover {
+  cursor: pointer;
+  filter: var(--filter-outline);
+}
+
+.rarityStarsContainer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.rarityStar {
+  filter: drop-shadow(1px 1px 0 var(--money-outline-clr))
+    drop-shadow(-1px 1px 0 var(--money-outline-clr))
+    drop-shadow(1px -1px 0 var(--money-outline-clr))
+    drop-shadow(-1px -1px 0 var(--money-outline-clr));
+}

@@ -1,0 +1,20 @@
+.button {
+  border: 2px solid #4f3122;
+  background-color: #764228;
+  color: #fff;
+  padding: 4px;
+  height: 32px;
+  width: 32px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+.button:hover {
+  background-color: #4f3122;
+}
