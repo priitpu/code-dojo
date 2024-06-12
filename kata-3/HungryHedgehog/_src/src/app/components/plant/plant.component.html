@@ -1,0 +1,10 @@
+<div>
+  @if (!isReady) {
+    <mat-progress-spinner mode="determinate" [value]="progress" [diameter]="50"></mat-progress-spinner>
+  } @else {
+    <button (click)="harvest()" mat-icon-button #tooltip="matTooltip" [matTooltip]="plant.profit + '$'">
+      <mat-icon class="ready">{{ plant.icon }}</mat-icon>
+    </button>
+  }
+</div>
+

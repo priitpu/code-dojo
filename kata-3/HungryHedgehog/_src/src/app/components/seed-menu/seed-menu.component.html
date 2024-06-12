@@ -1,0 +1,9 @@
+<div class="seed-menu-container">
+  @for (seed of plants; track seed.icon; let idx = $index) {
+    <div [class]="'option ' + 'option-' + (idx + 1)">
+      <button (click)="plant(seed)" [disabled]="money() < seed.cost" mat-icon-button>
+        <mat-icon>{{ seed.icon }}</mat-icon>
+      </button>
+    </div>
+  }
+</div>

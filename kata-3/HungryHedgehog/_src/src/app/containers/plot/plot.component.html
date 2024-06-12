@@ -1,0 +1,18 @@
+<div class="board">
+
+  <div class="overlay">
+    @for (bed of beds; track $index; let idx = $index) {
+      <span class="bed">
+
+        @if (bed.plant) {
+          <app-plant [plant]="bed.plant" (plantHarvested)="harvestPlant(idx)"></app-plant>
+        } @else {
+          <button class="select-plants" mat-icon-button>
+            <mat-icon>select_all</mat-icon>
+          </button>
+          <app-seed-menu [plants]="seeds" (seedPlanted)="plantSeed($event, idx)"></app-seed-menu>    
+        }
+      </span>
+    }
+  </div>
+</div>

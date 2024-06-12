@@ -1,0 +1,28 @@
+:host {
+  width: 100px;
+  height: 100px;
+}
+
+.option {
+  position: absolute;
+
+  button:not([disabled]) {
+    color: yellow;
+  }
+
+  &.option-1 {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.option-2 {
+    top: 0;
+    transform: translateY(75%);
+  }
+
+  &.option-3 {
+    right: 0;
+    top: 0;
+    transform: translateY(75%);
+  }
+}
