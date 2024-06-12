@@ -1,4 +1,5 @@
 import { Component, For, Show, batch, createSignal } from "solid-js";
+import { Seed } from "../../lib/models/farm.model";
 import {
   buyableSeeds,
   emeralds,
@@ -6,9 +7,8 @@ import {
   setBuyableSeeds,
   setEmeralds,
 } from "../../lib/state/farm.state";
-import styles from "./store.module.scss";
-import { Seed } from "../../lib/models/farm.model";
 import { SeedInfo } from "../seed-info/seed-info";
+import styles from "./store.module.scss";
 
 export const StoreItem: Component<{ seed: Seed; nextSeedPrice: number }> = (
   props
@@ -35,7 +35,7 @@ export const StoreItem: Component<{ seed: Seed; nextSeedPrice: number }> = (
       >
         <span class={styles["seed__price"]}>
           <img
-            src="/src/assets/emerald.webp"
+            src="/code-dojo/kata-3/GorgeousAlpaca/assets/emerald.webp"
             width={24}
             height={24}
             alt="Emerald"
@@ -53,7 +53,7 @@ export const StoreItem: Component<{ seed: Seed; nextSeedPrice: number }> = (
         <span class={styles.arrow}></span>
         <img
           class={styles["seed"]}
-          src={`/src/assets/flower-${props.seed.type}.webp`}
+          src={`/code-dojo/kata-3/GorgeousAlpaca/assets/flower-${props.seed.type}.webp`}
           width={35}
           height={35}
           alt={`${props.seed.type} Flower`}
@@ -77,7 +77,7 @@ export const Store: Component<{ nextSeedPrice: number }> = (props) => {
       >
         Store
         <img
-          src="/src/assets/emerald.webp"
+          src="/code-dojo/kata-3/GorgeousAlpaca/assets/emerald.webp"
           width={24}
           height={24}
           alt="Emerald"

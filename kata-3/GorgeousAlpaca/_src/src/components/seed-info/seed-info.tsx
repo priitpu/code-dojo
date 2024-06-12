@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
 import { Seed } from "../../lib/models/farm.model";
-import styles from "./seed-info.module.scss";
 import { emeralds } from "../../lib/state/farm.state";
+import styles from "./seed-info.module.scss";
 export const SeedInfo: Component<{ seed: Seed }> = (props) => {
   return (
     <div class={styles.info}>
@@ -19,7 +19,7 @@ export const SeedInfo: Component<{ seed: Seed }> = (props) => {
             {props.seed.cost}
           </span>
           <img
-            src="/src/assets/emerald.webp"
+            src="/code-dojo/kata-3/GorgeousAlpaca/assets/emerald.webp"
             width={24}
             height={24}
             alt="Emerald"
@@ -31,7 +31,7 @@ export const SeedInfo: Component<{ seed: Seed }> = (props) => {
         <span class={styles["info__text"]}>
           Value: {props.seed.value}{" "}
           <img
-            src="/src/assets/emerald.webp"
+            src="/code-dojo/kata-3/GorgeousAlpaca/assets/emerald.webp"
             width={24}
             height={24}
             alt="Emerald"

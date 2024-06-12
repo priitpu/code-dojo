@@ -1,9 +1,9 @@
 import { Component, Show, createSignal, useContext } from "solid-js";
-import { Seed } from "../../lib/models/farm.model";
-import styles from "./seed.module.scss";
 import { PlantingContext } from "../../App";
+import { Seed } from "../../lib/models/farm.model";
 import { emeralds } from "../../lib/state/farm.state";
 import { SeedInfo } from "../seed-info/seed-info";
+import styles from "./seed.module.scss";
 
 export const SeedComponent: Component<{ seed: Seed }> = (props) => {
   const [isHovering, setIsHovering] = createSignal(false);
@@ -16,7 +16,7 @@ export const SeedComponent: Component<{ seed: Seed }> = (props) => {
       <button
         class={styles.seed}
         style={{
-          "--flower": `url(/src/assets/flower-${props.seed.type}.webp)`,
+          "--flower": `url(/code-dojo/kata-3/GorgeousAlpaca/assets/flower-${props.seed.type}.webp)`,
         }}
         aria-label={`Plant ${props.seed.type} seed`}
         onMouseEnter={() => setIsHovering(true)}
