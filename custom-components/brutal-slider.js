@@ -23,8 +23,8 @@ class BrutalSlider extends HTMLElement {
         }
         .tag {
             position: absolute;
-            top:0;
-            right:15px;
+            bottom:0;
+            left:15px;
             font-weight: bold;
             font-size:14px;
             padding: 7px;
