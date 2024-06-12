@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { FarmContext } from '../../contexts/farm-context/FarmContext';
-import './crop-slot.scss';
-import { ECropType, cropImg } from '../../constants/crop';
-import clsx from 'clsx';
+import clsx from "clsx";
+import { useContext, useEffect, useState } from "react";
+import { ECropType, cropImg } from "../../constants/crop";
+import { FarmContext } from "../../contexts/farm-context/FarmContext";
+import "./crop-slot.scss";
 
 export default function CropSlot() {
   const { currentlyBuying, plantItem, sellItem } = useContext(FarmContext);
@@ -45,15 +45,15 @@ export default function CropSlot() {
 
   return (
     <button
-      className={clsx('f-crop-slot', { 'f-crop-slot--filled': plantedCrop })}
-      disabled={!currentlyBuying && !canHarvest}
+      className={clsx("f-crop-slot", { "f-crop-slot--filled": plantedCrop })}
+      disabled={!(currentlyBuying && !plantedCrop) && !canHarvest}
       onClick={onClick}
     >
       <div className="left" />
       <div className="right" />
       <div className="front" />
       <div className="top" />
-      {plantedCrop && <img className='f-crop-img' src={cropImg[plantedCrop]}/>}
+      {plantedCrop && <img className="f-crop-img" src={cropImg[plantedCrop]} />}
     </button>
   );
 }
