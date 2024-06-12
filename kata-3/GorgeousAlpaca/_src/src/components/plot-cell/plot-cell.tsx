@@ -6,12 +6,12 @@ import {
   createSignal,
   useContext,
 } from "solid-js";
-import { Plot } from "../../lib/models/farm.model";
-import styles from "./plot-cell.module.scss";
-import { availableSeeds, currentTime } from "../../lib/state/farm.state";
-import { SeedComponent } from "../seed/seed";
 import { PlantingContext } from "../../App";
+import { Plot } from "../../lib/models/farm.model";
+import { availableSeeds, currentTime } from "../../lib/state/farm.state";
 import { SeedInfo } from "../seed-info/seed-info";
+import { SeedComponent } from "../seed/seed";
+import styles from "./plot-cell.module.scss";
 
 const PlotCell: Component<{
   plot: Plot;
@@ -105,7 +105,7 @@ const PlotCell: Component<{
         >
           <img
             class={styles["flower__img"]}
-            src={`/src/assets/flower-${props.plot.seed?.type}.webp`}
+            src={`./assets/flower-${props.plot.seed?.type}.webp`}
             width={35}
             height={35}
             alt={`${props.plot.seed?.type} Flower`}

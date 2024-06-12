@@ -78,7 +78,6 @@ const reducer = (state: FarmState, action: FarmAction): FarmState => {
       };
     default:
       throw new Error("Invalid action type");
-      return state;
   }
 };
 

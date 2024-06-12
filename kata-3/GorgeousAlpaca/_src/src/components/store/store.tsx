@@ -76,12 +76,7 @@ export const Store: Component<{ nextSeedPrice: number }> = (props) => {
         onClick={() => modalRef?.showModal()}
       >
         Store
-        <img
-          src="/src/assets/emerald.webp"
-          width={24}
-          height={24}
-          alt="Emerald"
-        />
+        <img src="./assets/emerald.webp" width={24} height={24} alt="Emerald" />
       </button>
       <dialog class={styles.modal} ref={modalRef}>
         <div class={styles.header}>
