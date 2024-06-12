@@ -16,7 +16,7 @@ export const SeedComponent: Component<{ seed: Seed }> = (props) => {
       <button
         class={styles.seed}
         style={{
-          "--flower": `url(./assets/flower-${props.seed.type}.webp)`,
+          "--flower": `url(./flower-${props.seed.type}.webp)`,
         }}
         aria-label={`Plant ${props.seed.type} seed`}
         onMouseEnter={() => setIsHovering(true)}
