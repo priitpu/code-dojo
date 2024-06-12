@@ -13,13 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./assets/grass.avif);
+    background-image: url(/src/assets/grass.avif);
     background-size: 50px 50px;
   }
 
   @font-face {
     font-family: blocky;
-    src: url(./assets/font.ttf);
+    src: url(/src/assets/font.ttf);
   }
 
   :root {
